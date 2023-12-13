@@ -32,6 +32,39 @@
             "prix": 30,
             "photo":"trapilho2.JPG"
         }
+    ],
+    "accessoire": [
+        {
+            "nom":"sac à main",
+            "prix": 8
+            
+        },
+        {
+            "nom":"bonnet",
+            "prix": 10
+        
+        },
+        {
+            "nom":"écharpe",
+            "prix": 10
+        
+        },
+        {
+            "nom":"short",
+            "prix": 12
+        }
+    ],
+    "patrons": [
+        {
+            "nom":"patron ours",
+            "prix": 5
+        
+        },
+        {
+            "nom":"patron poussin",
+            "prix": 3
+        
+        }
     ]
     
 }
