@@ -22,34 +22,61 @@ footer {
     font-size: var(--text-size);
 } 
 .titleFooterSection1 {
+    position: relative;
     background: lightblue;
     /* width: 100%; */
     margin: 50px;
+    padding: 5px 20px;
     font-size: 1.5em;
     display: flex; 
     justify-content: center;
 }
+.titleFooterSection1::after,
+.titleFooterSection1::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    height: 2px;
+    background: lightblue;
+}
+
 .titleFooterSection1::after {
-    content: '';
-    top: 53.5%;
-    width: 100%;
-    height: 2px;
-    background: lightblue;
-} 
+    width: 400%;
+    left: 100%; /* Part vers la droite */
+}
+
+.titleFooterSection1::before {
+    width: 400%;
+    right: 100%; /* Part vers la gauche */
+}
 .titleFooterSection2 {
+    position: relative;
     background: lightblue;
     /* width: 100%; */
     margin: 50px;
+    padding: 5px 10px;
     font-size: 1.5em;
     display: flex; 
     justify-content: center;
 }
-.titleFooterSection2::after {
+.titleFooterSection2::after,
+.titleFooterSection2::before {
+    position: absolute;
     content: '';
-    width: 100%;
+    top: 50%;
     height: 2px;
-    background: blue;
-} 
+    background: lightblue;
+}
+
+.titleFooterSection2::after {
+    width: 400%;
+    left: 100%; /* Part vers la droite */
+}
+
+.titleFooterSection2::before {
+    width: 400%;
+    right: 100%; /* Part vers la gauche */
+}
 .footerBottom {
     position: absolute;
     bottom: 0;
