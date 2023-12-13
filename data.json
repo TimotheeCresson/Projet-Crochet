@@ -1,0 +1,37 @@
+{
+    "animaux": [
+        {
+            "nom":"Ours",
+            "prix": 20,
+            "photo": "ours.png"
+        },
+        {
+            "nom":"elephant",
+            "prix": 40,
+            "photo": "elephant.JPG"
+        },
+        {
+            "nom":"licorne",
+            "prix": 20,
+            "photo": "licorne.JPG"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        }
+    ],
+    "trapilho": [
+        {
+            "nom":"trapilho tricolore",
+            "prix": 30,
+            "photo":"trapilho.JPG"
+        },
+        {
+            "nom":"trapilho jaune",
+            "prix": 30,
+            "photo":"trapilho2.JPG"
+        }
+    ]
+    
+}

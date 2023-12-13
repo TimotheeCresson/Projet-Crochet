@@ -1,0 +1,45 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000000;
+    --title-color: rgb(87, 61, 61);
+    --secondary-color: rgb(248, 243, 243);
+    --title-size: 2rem;
+    --text-size: 1em;
+    --police-Karla-Bold: "Karla-Bold";
+    --police-Karla-Regular: "Karla-Regular";
+    --police-ballet : "Ballet";
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Karla-Bold";
+    src: url("../font/Karla-Bold.ttf");
+}
+@font-face {
+    font-family: "Karla-Regular";
+    src: url("../font/Karla-Regular.ttf");
+}
+@font-face {
+    font-family: "Ballet";
+    src: url("../font/Ballet-Regular-VariableFont_opsz.ttf");
+}
+
+body {
+    display: grid;
+    grid-template-rows: 100vh 50vh 100vh 100vh 40vh 100vh;
+    height: 420vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+h1 {
+    font-family: var(--police-ballet);
+    font-size: var(--title-size);
+    text-transform: capitalize;
+}
