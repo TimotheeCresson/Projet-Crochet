@@ -33,6 +33,7 @@ footer {
 }
 .titleFooterSection1::after,
 .titleFooterSection1::before {
+    content: "";
     position: absolute;
     content: '';
     top: 50%;
@@ -41,11 +42,13 @@ footer {
 }
 
 .titleFooterSection1::after {
+    content: "";
     width: 400%;
     left: 100%; /* Part vers la droite */
 }
 
 .titleFooterSection1::before {
+    content: "";
     width: 400%;
     right: 100%; /* Part vers la gauche */
 }
@@ -61,6 +64,7 @@ footer {
 }
 .titleFooterSection2::after,
 .titleFooterSection2::before {
+    content: "";
     position: absolute;
     content: '';
     top: 50%;
@@ -69,11 +73,13 @@ footer {
 }
 
 .titleFooterSection2::after {
+    content: "";
     width: 400%;
     left: 100%; /* Part vers la droite */
 }
 
 .titleFooterSection2::before {
+    content: "";
     width: 400%;
     right: 100%; /* Part vers la gauche */
 }

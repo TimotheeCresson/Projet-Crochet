@@ -87,4 +87,6 @@ function startSlider() {
     });
 }
 
-createCarrousel();
+// createCarrousel();
+
+export default createCarrousel;

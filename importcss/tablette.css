@@ -1,0 +1,17 @@
+/* @media screen and (min-width: 700px) { */
+    .barreNav {
+        width: 100%;
+        align-items: center;
+        min-height: 100px;
+        background: lightblue;
+    }
+    .menuNav {
+        display: flex;
+        justify-content: space-around;
+    }
+    .menuNav li a{
+        display: inline-block;
+        text-align: center;
+        padding-left: 30px;
+    } 
+/* } */
