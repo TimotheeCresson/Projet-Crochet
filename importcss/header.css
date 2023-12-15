@@ -24,13 +24,13 @@ header {
 }
 .barreNav {
     opacity: 0;
-    transform: scale(0.8); /* pour simuler l'apparition */
-    transition: visibility 0s, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(-20%);
+    transition: visibility 0.2s, opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .barreNav.active {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
 }
 .barreNav ul{
     position: relative;
@@ -42,6 +42,7 @@ header {
     background: lightblue;
     padding: 30px;
     gap: 20px;
+    margin-top: 50px;
 }
 
 .barreNav ul li {
@@ -131,10 +132,24 @@ header {
     width: 20px;
     border-radius: 50%;
     position: relative;
-    left: 9%;
     margin: 10px;
     box-shadow: 4px 1px 2px black;
     cursor: pointer;
+}
+.dot:active {
+    box-shadow: 2px 1px 5px black;
+}
+
+
+
+.divDot {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.carrousel-container .slider-image {
+    width: 100%;
+    height: 100%;
 }
 .carrousel-container img{
     width: 100%;
@@ -145,18 +160,43 @@ header {
 .next {
     cursor: pointer;
     position: absolute;
+    margin: 5px;
     top: 35%;
-    width: auto;
-    padding: 16px;
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    padding: 0;
     color: white;
     font-weight: bold;
     font-size: 18px;
     user-select: none;
+    border-radius: 50%;
+    transition: 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .next {
     right: 0;
 }
 .previous {
     left: 0;
+}
+.previous:hover,
+.next:hover { 
+    background-color: grey;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .2
+    }
+
+    to {
+        opacity: 1
+    }
 }
 

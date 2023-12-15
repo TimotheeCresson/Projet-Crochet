@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="imgHeader"></div>
-        <label for="check" class="open-menu"><i class="fa-solid fa-bars"></i></label>
+        <label for="check" class="open-menu"><i class="fa-solid fa-house"></i></label>
         <nav class="barreNav barreNavDisplay">
             <ul>
                 <input type="checkbox" id="check">
@@ -41,15 +41,24 @@
 
     <section class="boutique">
         <div class="separationPage"></div>
-         <h1>ma boutique</h1>
+        <h1>ma boutique</h1>
         <div class="creationContainer">
-            <div class="creationInput">
+            <div class="creationSelection">
+                <select name="allCreation" id="allCreation">
+                    <option value="animaux">Animaux</option>
+                    <option value="trapilho">Trapilho</option>
+                </select>
+            </div>
+            <div class="creationInputRecherche">
                 <input type="search" name="rechercherProduits" id="rechercherProduits" placeholder="Rechercher des produits ...">
                 <input type="button" value="Rechercher">
             </div>
-            <div class="creationImg"></div>
-            <input type="button" value="Lire la suite">
         </div>
+            <div class="apparitionCreation">
+                <h2>Créations</h2>
+                <div class="creationImgDiv"></div>
+                <input type="button" value="Lire la suite">
+            </div>
     </section>
 
     <section class="accessoires">

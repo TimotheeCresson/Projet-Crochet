@@ -3,3 +3,42 @@
     flex-direction: column;
     align-items: center;
 }
+.imgDivElement {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.imgCreation {
+    width: 100%;
+    max-width: 100%; 
+    height: 200px; 
+    object-fit: fill;
+}
+.creationImgDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.infoDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../img/imgHover.jpg") center / cover;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.imgDivElement:hover .infoDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

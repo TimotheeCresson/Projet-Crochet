@@ -6,6 +6,9 @@ const carrouselDiv = document.querySelector(".carrousel");
 const images = ["./img/licorne.JPG", "./img/elephant.JPG", "./img/lapin.JPG", "./img/trapilho.JPG", "./img/trapilho2.JPG"];
 const dotsElements = [];
 const imagesElements = [];
+const divDot = document.createElement("div");
+divDot.classList.add("divDot");
+
 
 function createCarrousel() {
     const carrouselContainer = document.createElement("div");
@@ -13,19 +16,23 @@ function createCarrousel() {
 
     images.forEach((img, index) => {
     // console.log(img,index)
+    const divImg = document.createElement("div")
+    divImg.classList.add("slider-image", "fade");
     const image = document.createElement("img");
-    image.classList.add("slider-image");
     image.src = img;
-    image.style.display = index === 0 ? "block" : "none";
+    divImg.style.display = index === 0 ? "block" : "none";
+    divImg.append(image);
     const dot = document.createElement("button");
     dot.classList.add("dot");
     dot.dataset.id = index;
-
     dotsElements.push(dot);
-    imagesElements.push(image);
+    imagesElements.push(divImg);
+    carrouselContainer.append(divImg);
 })
     imagesElements.forEach((imageElement) => carrouselContainer.append(imageElement));
-    dotsElements.forEach((dotElement) =>carrouselContainer.append(dotElement));
+
+    carrouselContainer.append(divDot);
+    dotsElements.forEach((dotElement) =>divDot.append(dotElement));
     const next = document.createElement("a");
     next.classList.add("next");
     next.innerHTML = "&#10095;"
