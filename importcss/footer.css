@@ -9,7 +9,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 .menuFooter ul li {
     list-style: none;
