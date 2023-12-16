@@ -34,7 +34,6 @@
     align-items: center;
     opacity: 0.8;
 }
-
 .imgDivElement:hover .infoDiv {
     display: flex;
     flex-direction: column;
@@ -42,6 +41,10 @@
     align-items: center;
     gap: 10px;
 }
+
+
+
+
 #allCreation {
     background: lightblue;
     color: var(--primary-color);
@@ -85,12 +88,4 @@
     font-size: 0.8em;
     font-family: var(--police-Karla-Regular);
     text-transform: capitalize;
-}
-.description {
-    background: lightblue;
-    font-size: 0.8em;
-    color: black;
-    font-family: var(--police-Karla-Regular);
-    padding: 2px 5px;
-    cursor: pointer;
 }

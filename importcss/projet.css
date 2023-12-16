@@ -42,3 +42,42 @@
     align-items: center;
     gap: 10px;
 }
+.descriptionDiv {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: lightblue;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    text-align: center;
+    color: white;
+    font-family: var(--police-Karla-Regular);
+}
+.descriptionBtnClose {
+    border: none;
+    background: white;
+    cursor: pointer;
+}
+.descriptionDiv i {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.2em;
+}
+.fa-solid {
+    color: white;
+}
+.descriptionBtn {
+    background: lightblue;
+    font-size: 0.8em;
+    color: black;
+    font-family: var(--police-Karla-Regular);
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 0.5em;
+}

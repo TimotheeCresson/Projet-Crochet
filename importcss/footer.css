@@ -129,3 +129,6 @@ footer {
     font-family: var(--police-Karla-Bold);
     margin-bottom: 20px;
 }
+.fa-envelope {
+    color: black;
+}
