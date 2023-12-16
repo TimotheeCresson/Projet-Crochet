@@ -3,3 +3,42 @@
     flex-direction: column;
     align-items: center;
 }
+.imgProjetNouveautés {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.imgNewDiv {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+.imgCreationNew {
+    width: 100%;
+    max-width: 100%; 
+    height: 100%; 
+    object-fit: fill;
+}
+
+.infoDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../img/imgHover.jpg") center / cover;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+.imgNewDiv:hover .infoDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

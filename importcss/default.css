@@ -32,15 +32,16 @@
 }
 
 body {
-    display: grid;
+    /* display: grid;
     grid-template-rows: 100dvh 50vh 100vh 100vh 40vh 100vh;
     height: 420vh;
-    width: 100%;
+    width: 100%; */
     overflow-x: hidden;
 }
 h1 {
     font-family: var(--police-ballet);
     font-size: var(--title-size);
+    color: var(--title-color);
     text-transform: capitalize;
 }
 .separationPage {

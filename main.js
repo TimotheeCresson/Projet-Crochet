@@ -1,7 +1,10 @@
-import createCarrousel from './slider.js';
-
+import createCarrousel from './importJs/slider.js';
+import {newProjet} from './importJs/newProjet.js';
+import {boutique} from './importJs/boutique.js';
 // Appelle la fonction pour créer le carrousel
 createCarrousel();
+newProjet();
+boutique();
 
 const inputCheck = document.getElementById('check');
 const barreNav = document.querySelector('.barreNav');
@@ -21,83 +24,50 @@ inputCheck.addEventListener('change', function () {
 });
 
 
+// fetch("./data.json")
+//     .then((response)=> response.json())
+//     .then((data) => {
+//         try{
+//             const imgProjectNew = document.querySelector(".imgProjetNouveautés")
+//             let newCreations = [];
+//             console.log(imgProjectNew);
+
+//             newCreations = data.nouveautés;
+//             console.log(newCreations);
+
+//             newCreations.forEach((items) => {
+//                 // Créations images
+//                 const imgNewDiv = document.createElement("div");
+//                 imgNewDiv.classList.add("imgNewDiv");
+//                 const imgElement = document.createElement("img");
+//                 imgElement.src = `./img/${items.photo}`
+//                 imgElement.alt = items.nom;
+//                 imgElement.classList.add("imgCreationNew");
+
+//                 // Créations div info
+//                 const infoDivNew = document.createElement("div");
+//                 infoDivNew.classList.add("infoDiv");
+
+//                 const nameCreationNew = document.createElement("p");
+//                 nameCreationNew.textContent = items.nom;
+
+//                 const priceCreationNew = document.createElement("p");
+//                 priceCreationNew.textContent = `Prix: ${items.prix} €`
+//                 const descriptionBtnNew = document.createElement("button");
+//                 descriptionBtnNew.classList.add("description");
+//                 descriptionBtnNew.textContent = "Description";
+
+//                 infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
+//                 imgNewDiv.append(imgElement, infoDivNew);
+//                 imgProjectNew.append(imgNewDiv);
+//             })
+//         }
+//         catch(error) {
+//             console.error('Erreur chargement donnée:', error);
+//         }
+//     })
 
 
-fetch("./data.json")
-    .then((response) => response.json())
-    .then((data) => {
-        try{
-            // on sélectionne nos éléments
-            const allCreationSelect = document.getElementById("allCreation");
-            const optionCreations = allCreationSelect.querySelectorAll("option");
-            const inputRecherche = document.querySelector("#rechercherProduits")
-            const creationImgContainer= document.querySelector(".creationImgDiv")
-
-            let animaux = [];
-            let trapilho = [];
-            animaux = data.animaux;
-            trapilho = data.trapilho;
-            console.log(animaux, trapilho);
-
-            // on crée une fonction afin de sélectionner chacunes de nos options
-            function handleSelectChange() {
-                optionCreations.forEach((option) => {
-                    if (option.selected) {
-                        const selectedOption = option.value;
-                        updateImage(selectedOption)
-                    }
-                })
-            }
-            allCreationSelect.addEventListener("change", () => {
-                handleSelectChange();
-            })
-
-            function updateImage(selectedOption) {
-                creationImgContainer.innerHTML = "";
-
-                const selectedArrayOption = selectedOption === "animaux" ? animaux : trapilho;
-                // console.log(selectedArrayOption);
-
-                selectedArrayOption.forEach((item)=>{
-                    // Creation de mes images
-                    const imgDivElement = document.createElement("div");
-                    imgDivElement.classList.add("imgDivElement")
-                    const imgCreation = document.createElement("img");
-                    imgCreation.classList.add("imgCreation")
-                    imgCreation.src = `./img/${item.photo}`;
-                    imgCreation.alt = item.nom;
-
-                    // Creation de la div Info
-                    const infoDiv = document.createElement("div");
-                    infoDiv.classList.add("infoDiv");
-
-                    const nameCreation = document.createElement("p");
-                    nameCreation.textContent = item.nom;
-
-                    const priceCreation = document.createElement("p");
-                    priceCreation.textContent = `Prix: ${item.prix} €`;
-
-                    const descriptionBtn =  document.createElement("button");
-                    descriptionBtn.textContent = "Description";
-                    
-                    infoDiv.append(nameCreation, priceCreation, descriptionBtn);
-
-                
-                    imgDivElement.append(imgCreation, infoDiv);
-
-                    
-                    creationImgContainer.append(imgDivElement);
-    
-                })
-            }
-
-
-
-        }
-        catch (error){
-            console.error('Error fetching data:', error);
-        }
-    })
 
 
 

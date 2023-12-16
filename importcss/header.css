@@ -114,6 +114,7 @@ header {
     margin: 20px;
     font-size: var(--text-size);
     font-family: var(--police-Karla-Regular);
+    margin-bottom: 60px;
 }
 
 
@@ -148,8 +149,8 @@ header {
     align-items: center;
 }
 .carrousel-container .slider-image {
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
 }
 .carrousel-container img{
     width: 100%;
@@ -161,7 +162,7 @@ header {
     cursor: pointer;
     position: absolute;
     margin: 5px;
-    top: 35%;
+    top: 40%;
     width: 30px; /* Set a fixed width */
     height: 30px; /* Set a fixed height */
     padding: 0;

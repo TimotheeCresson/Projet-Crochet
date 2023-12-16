@@ -1,4 +1,21 @@
 {
+    "nouveautés": [
+        {
+            "nom":"citrouille",
+            "prix": 25,
+            "photo": "citrouille.JPG"
+        },
+        {
+            "nom":"licorne",
+            "prix": 20,
+            "photo": "licorne.JPG"
+        },
+        {
+            "nom":"elephant",
+            "prix": 40,
+            "photo": "elephant.JPG"
+        }
+    ],
     "animaux": [
         {
             "nom":"Ours",
@@ -14,6 +31,41 @@
             "nom":"licorne",
             "prix": 20,
             "photo": "licorne.JPG"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
+        },
+        {
+            "nom":"poussin",
+            "prix": 15,
+            "photo": "poussin.jpg"
         },
         {
             "nom":"poussin",
