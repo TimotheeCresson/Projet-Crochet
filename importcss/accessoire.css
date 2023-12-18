@@ -31,13 +31,13 @@
 .imgAccessoireAnimate {
     /* display: flex; */
     animation: imageAnimate 10s infinite;
-    animation-play-state: running;
+    /* animation-play-state: running; */
 }
 
 /* Pause the animation when hovering over .accessoireImg */
-.imgAccessoireAnimate:hover {
+/* .imgAccessoireAnimate:hover {
     animation-play-state: paused;
-}
+} */
 
 @keyframes imageAnimate {
     0% {
