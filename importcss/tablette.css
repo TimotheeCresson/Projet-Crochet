@@ -5,13 +5,9 @@
         min-height: 100px;
         background: lightblue;
     }
-    .menuNav {
+    .barreNav ul {
         display: flex;
-        justify-content: space-around;
-    }
-    .menuNav li a{
-        display: inline-block;
-        text-align: center;
-        padding-left: 30px;
+        flex-direction: row;
+        justify-content: space-evenly;
     } 
 /* } */

@@ -18,7 +18,8 @@ fetch("./data.json")
         trapilhoArray = data.trapilho;
         console.log(animauxArray, trapilhoArray);
 
-
+        handleSelectChange();
+        
         function handleSelectChange() {
             optionCreations.forEach((option) => {
                 if (option.selected) {

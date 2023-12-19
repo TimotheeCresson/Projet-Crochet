@@ -77,6 +77,10 @@
     align-items: center;
     gap: 20px;
 }
+.creationInputRecherche {
+    display: flex;
+    gap: 10px;
+}
 .apparitionCreation {
     display: flex;
     flex-direction: column;

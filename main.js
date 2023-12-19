@@ -14,15 +14,30 @@ const openMenu = document.querySelector('.open-menu')
 const barreNavDisplay = document.querySelector('.barreNavDisplay');
 
 
-// Ajoutez un écouteur d'événements pour détecter les changements de la checkbox
+
 inputCheck.addEventListener('change', function () {
-    // Mettez à jour la classe "active" de la barre de navigation en fonction de l'état de la checkbox
+    
     openMenu.style.display = this.checked ? 'none' : 'block';
     barreNavDisplay.style.display = this.checked ? 'block' : 'none';
     setTimeout(()=>{
-        barreNav.classList.toggle('active', this.checked);
-    }, 150)
-    
+        // barreNav.classList.toggle('active', this.checked);
+        // barreNav.classList.toggle('leave', this.checked);
+        if (this.checked) {
+            setTimeout(() => {
+            barreNav.classList.add('active');
+            barreNav.classList.remove('leave')
+            }, 150);
+        }
+        if (!this.checked) {
+            setTimeout(() => {
+                barreNav.classList.add('leave');
+                barreNav.classList.remove('active')
+            }, 150);
+        }
+        // else if (this.checked) {
+        //     barreNav.classList.remove('leave');
+        // }
+    }, 150);
 });
 
 
