@@ -33,7 +33,9 @@
     animation: imageAnimate 10s infinite;
     /* animation-play-state: running; */
 }
-
+.accessoireImg:hover .imgAccessoireAnimate {
+    animation-play-state: paused;
+}
 /* Pause the animation when hovering over .accessoireImg */
 /* .imgAccessoireAnimate:hover {
     animation-play-state: paused;
