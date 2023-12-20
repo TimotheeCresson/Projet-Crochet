@@ -19,13 +19,32 @@ footer {
 .menuFooter ul li a{
     text-decoration: none;
     color: var(--primary-color);
-    font-size: var(--text-size);
+    font-size: 0.8em;
+    position: relative;
+    transition: 0.15s ease-in-out;
+    text-transform: uppercase;
 } 
+.menuFooter ul li a:hover {
+    color: rgb(49, 137, 167);
+    
+}
+.menuFooter ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: rgb(49, 137, 167);
+    transition: 0.50s ease-in-out;
+}
+.menuFooter ul li a:hover::after {width: 100%;}
+
 .titleFooterSection1 {
     position: relative;
     background: lightblue;
     /* width: 100%; */
-    margin: 50px;
+    margin: 30px;
     padding: 5px 20px;
     font-size: 1.5em;
     display: flex; 
@@ -56,7 +75,7 @@ footer {
     position: relative;
     background: lightblue;
     /* width: 100%; */
-    margin: 50px;
+    margin: 30px;
     padding: 5px 10px;
     font-size: 1.5em;
     display: flex; 
@@ -117,6 +136,9 @@ footer {
     font-family: var(--police-Karla-Bold);
     color: var(--primary-color);
 }
+.socialMedia a:hover {
+    color: rgb(199, 75, 75);
+}
 .mediaContainer {
     display: flex;
     flex-direction: column;
@@ -127,8 +149,11 @@ footer {
     text-align: center;
     font-family: var(--police-Karla-Regular);
     font-family: var(--police-Karla-Bold);
-    margin-bottom: 20px;
+    margin: 10px;
 }
 .fa-envelope {
     color: black;
+}
+.fa-envelope:hover {
+    color: rgb(199, 75, 75);
 }

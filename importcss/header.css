@@ -1,13 +1,13 @@
 
 /* animation */
-@keyframes leaveAnimation {
+
+@keyframes fade {
     from {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: .2
     }
+
     to {
-        opacity: 0;
-        transform: translateY(-20%);
+        opacity: 1
     }
 }
 
@@ -45,9 +45,6 @@ header {
 .barreNav.active {
     opacity: 1;
     transform: translateY(0);
-}
-.barreNav.leave {
-    animation: leaveAnimation 1s ease-in-out; /* Animation lors de la disparition */
 }
 
 .barreNav ul{
@@ -209,13 +206,5 @@ header {
     animation-duration: 2s;
 }
 
-@keyframes fade {
-    from {
-        opacity: .2
-    }
 
-    to {
-        opacity: 1
-    }
-}
 

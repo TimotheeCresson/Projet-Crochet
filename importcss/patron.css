@@ -3,3 +3,66 @@
     flex-direction: column;
     align-items: center;
 }
+.patronContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+.patronImgContainer {
+    position: relative;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotation 50s linear infinite ;
+}
+.imgPatron {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.patronBorder {
+    border-radius: 50%;
+    cursor: pointer;
+    animation: rotationPatron 80s linear infinite;
+}
+/* On effectue une rotation autour du centre de notre imgPatron puis une translation déplaçant notre image de 100% de sa propre largeur vers la droite (dans le sens de l'axe x) et enfin une rotation de 45deg de notre image */
+.imgCercle0 {
+    transform: rotate(45deg) translate(100%) rotate(-85deg);
+}
+
+.imgCercle1 {
+    transform: rotate(135deg) translate(100%) rotate(-185deg);
+}
+
+.imgCercle2 {
+    transform: rotate(-135deg) translate(100%) rotate(105deg);
+}
+
+.imgCercle3 {
+    transform: rotate(-45deg) translate(100%) rotate(0deg);
+}
+.patrons p {
+    text-align: center;
+    font-size: var(--text-size);
+    font-family: var(--police-Karla-Regular);
+    padding: 20px;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotationPatron {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

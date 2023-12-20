@@ -10,7 +10,7 @@
     align-items: center;
     gap: 10px;
     max-height: 400px;
-    overflow: auto;
+    overflow-y: auto;
     scrollbar-color: lightblue gray;
     scrollbar-width: auto;
 

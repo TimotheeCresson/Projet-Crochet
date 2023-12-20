@@ -89,13 +89,13 @@
     ],
     "trapilho": [
         {
-            "nom":"trapilho tricolore",
+            "nom":"Tricolore",
             "prix": 30,
             "photo":"trapilho.JPG",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
-            "nom":"trapilho jaune",
+            "nom":"Jaune",
             "prix": 30,
             "photo":"trapilho2.JPG",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
@@ -143,14 +143,26 @@
         {
             "nom":"patron ours",
             "prix": 5,
-            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
-        
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
+            "photo": "poussin.jpg"
         },
         {
             "nom":"patron poussin",
             "prix": 3,
-            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
-        
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
+            "photo": "ours.jpg"
+        },
+        {
+            "nom":"patron oeuf",
+            "prix": 3,
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
+            "photo": "licorne.JPG"
+        },
+        {
+            "nom":"patron short",
+            "prix": 3,
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
+            "photo": "poussin.jpg"
         }
     ]
     
