@@ -51,7 +51,7 @@ fetch("./data.json")
 
         btnSuite.addEventListener("click", () => {
             currentSetIndex += imagesPerSet; // Faire apparaître les 4 images suivantes
-            if (!searchProduitsProcessed) {
+            if (searchProduitsProcessed === false) {
                 handleSelectChange();
             }
             

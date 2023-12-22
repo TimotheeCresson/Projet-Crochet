@@ -19,8 +19,8 @@
 }
 .imgPatron {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 30vw;
+    height: 30vw;
 }
 .patronBorder {
     border-radius: 50%;

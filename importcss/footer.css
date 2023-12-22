@@ -108,6 +108,7 @@ footer {
     min-height: 100px;
     background: lightblue;
     margin-top: 20px;
+    width: 100%;
 }
 .copyright {
     display: flex;

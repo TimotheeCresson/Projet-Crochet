@@ -1,9 +1,14 @@
-/* @media screen and (min-width: 700px) { */
+/* @media screen and (min-width: 600px) { */
+    header {
+        padding-top: 130px;
+    }
+    .imgHeader {
+        height: 150px;
+    }
     .barreNav {
         width: 100%;
         align-items: center;
         min-height: 100px;
-        background: lightblue;
     }
     .barreNav ul {
         display: flex;
