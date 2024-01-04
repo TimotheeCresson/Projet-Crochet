@@ -1,3 +1,4 @@
+"use strict";
 export function patron() {
     fetch("./data.json")
         .then((response) => response.json())

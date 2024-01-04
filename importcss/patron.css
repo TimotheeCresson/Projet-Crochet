@@ -24,7 +24,6 @@
 }
 .patronBorder {
     border-radius: 50%;
-    cursor: pointer;
     animation: rotationPatron 80s linear infinite;
 }
 /* On effectue une rotation autour du centre de notre imgPatron puis une translation déplaçant notre image de 100% de sa propre largeur vers la droite (dans le sens de l'axe x) et enfin une rotation de 45deg de notre image */
@@ -49,6 +48,25 @@
     font-family: var(--police-Karla-Regular);
     padding: 20px;
 }
+.btnPatrons {
+    position: relative;
+    background: lightblue;
+    top: -5px;
+    font-size: 0.8em;
+    color: black;
+    font-family: var(--police-Karla-Regular);
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid rgb(179, 154, 154);
+    border-radius: 0.5em;
+    box-shadow: 7px 7px 5px black;
+    margin: 20px;
+}
+.btnPatrons:active {
+    top: 0;
+    box-shadow: 5px 5px 5px 0px black;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

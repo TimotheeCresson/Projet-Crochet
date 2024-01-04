@@ -1,5 +1,5 @@
 
-
+"use strict";
 export function accessoire() {
 fetch("./data.json")
     .then((response) => response.json())

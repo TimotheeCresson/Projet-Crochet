@@ -28,6 +28,24 @@ header {
     height: 100px;
     /* padding: 20px; */
 }
+
+/* 
+    ------------------------------
+    Page du Panier 
+    ------------------------------
+*/
+.titlePanier {
+    color: lightblue;
+    font-family: var(--police-Karla-Bold);
+    font-size: 2em;
+}
+
+
+
+
+
+
+
 /* 
 -------------------------
     Nav barre
@@ -123,6 +141,8 @@ header {
 }
 .accueil h1 {
     font-family: var(--police-Karla-Bold);
+    font-size: 1.5em;
+    text-align: center;
 }
 .accueil p {
     text-align: center;

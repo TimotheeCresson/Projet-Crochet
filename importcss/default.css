@@ -45,7 +45,7 @@ h1 {
     text-transform: capitalize;
 }
 .separationPage {
-    background: url("../img/separationImg.jpg") center / cover;
+    background: url("../img/separationImg.jpg") center / contain no-repeat;
     height: 100px;
     width: 100%;
     margin-top: 30px;

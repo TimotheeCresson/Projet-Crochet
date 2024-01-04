@@ -58,6 +58,7 @@
     padding: 5px 10px;
     font-family: var(--police-Karla-Regular);
     font-weight: 300;
+    cursor: pointer;
 }
 #rechercherProduits{
     padding: 5px 10px;
@@ -68,6 +69,7 @@
     padding: 5px 10px;
     font-family: var(--police-Karla-Regular);
     font-weight: 300;
+    cursor: pointer;
 }
 .creationContainer {
     margin: 40px;

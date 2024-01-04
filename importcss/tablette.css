@@ -15,4 +15,21 @@
         flex-direction: row;
         justify-content: space-evenly;
     } 
+    .imgPatron {
+        height: 200px;
+        width: 200px;
+    }
+    .patrons {
+        height: 100%;
+    }
+    .patronContainer {
+        width: 0;
+    }
+    .patronImgContainer {
+        height: 600px;
+    }
+    .imgDivElement, .imgNewDiv {
+        height: 250px;
+        width: 250px;
+    }
 /* } */

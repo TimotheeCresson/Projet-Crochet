@@ -1,5 +1,5 @@
 
-
+"use strict";
 export function newProjet() {
 fetch("./data.json")
     .then((response)=> response.json())

@@ -1,3 +1,4 @@
+"use strict";
 export function boutique() {
 fetch("./data.json")
     .then((response) => response.json())
@@ -13,6 +14,7 @@ fetch("./data.json")
         let animauxArray = [];
         let trapilhoArray = [];
         let currentSetIndex = 0; 
+        // Afin à pouvoir mettre 4 images lorsque l'on appuyera sur le bouton lire la suite
         const imagesPerSet = 4;
         let searchProduitsProcessed = false;
         animauxArray = data.animaux;
@@ -52,6 +54,7 @@ fetch("./data.json")
         btnSuite.addEventListener("click", () => {
             currentSetIndex += imagesPerSet; // Faire apparaître les 4 images suivantes
             if (searchProduitsProcessed === false) {
+                // console.log(searchProduitsProcessed);
                 handleSelectChange();
             }
             
@@ -62,7 +65,7 @@ fetch("./data.json")
             // Affichez la valeur actuelle dans la console
             const searchProduits = rechercherProduitsInput.value.trim().toLowerCase();
             if (searchProduits) {
-                localStorage.setItem("searchProduits", searchProduits);
+                // localStorage.setItem("searchProduits", searchProduits);
                 searchProduitsProcessed = true;
                 rechercherProduitsInput.innerHTML = "";
                 creationImgContainer.innerHTML = ""; // Clear previous images
@@ -74,8 +77,8 @@ fetch("./data.json")
                 updateImageInput(resultatsFinaux);
             }
             else {
-                localStorage.removeItem("searchProduits");
                 creationImgContainer.innerHTML = ""; // on supprime les images présente afin que lorsque l'on change de sélection, nous n'avons que celle sélectionné
+                searchProduitsProcessed = false;
                 currentSetIndex = 0; // Réinitialise le currentSetIndex quand on clique sur le btn
                 handleSelectChange();
             }
@@ -85,6 +88,11 @@ fetch("./data.json")
             console.log("Valeur de l'input :", searchProduits);
         });
 
+        // Enlever la valeur de mon input lors du reload de la page
+        window.addEventListener('beforeunload', function() {
+            // Réinitialisez la valeur de l'input à une chaîne vide
+            rechercherProduitsInput.value = '';
+        });
 
 
         function updateImageInput(items) {

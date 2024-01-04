@@ -3,12 +3,14 @@ import {newProjet} from './importJs/newProjet.js';
 import {boutique} from './importJs/boutique.js';
 import { accessoire } from './importJs/accessoire.js';
 import { patron } from './importJs/patron.js';
+import { panier } from './importJs/panier.js';
 // Appelle la fonction pour créer le carrousel
 createCarrousel();
 newProjet();
 boutique();
 accessoire();
 patron();
+panier();
 
 const inputCheck = document.getElementById('check');
 const barreNav = document.querySelector('.barreNav');
