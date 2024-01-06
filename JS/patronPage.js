@@ -1,20 +1,24 @@
-export function accessoire() {
-    fetch("./data.json")
+"use strict";
+
+// function patronMain() {
+    fetch("/data.json")
         .then((response) => response.json())
         .then((data) => {
             try {
-                const accessoireImg = document.querySelector(".accessoireImg");
+                const containerPatronsPage = document.querySelector(".containerPatrons");
+                const imgPatronContainerPage = document.querySelector(".imgPatronContainerPage"); 
+    
+                let patronArray = [];
+    
+                patronArray = data.patrons
+                
 
-                // Vider complètement le contenu de accessoireImg
-                accessoireImg.innerHTML = '';
 
-                let accessoireArray = data.accessoire;
-
-                accessoireArray.forEach((items) => {
+                patronArray.forEach((items, index) => {
                     const imgNewDiv = document.createElement("div");
-                    imgNewDiv.classList.add("imgNewDiv", "imgAccessoireAnimate");
+                    imgNewDiv.classList.add("imgNewDiv");
                     const imgElement = document.createElement("img");
-                    imgElement.src = `./img/${items.photo}`;
+                    imgElement.src = `./img/${items.photo}`
                     imgElement.alt = items.nom;
                     imgElement.classList.add("imgCreationNew");
 
@@ -26,34 +30,37 @@ export function accessoire() {
                     nameCreationNew.textContent = items.nom;
 
                     const priceCreationNew = document.createElement("p");
-                    priceCreationNew.textContent = `Prix: ${items.prix} €`;
+                    priceCreationNew.textContent = `Prix: ${items.prix} €`
 
                     const descriptionBtnNew = document.createElement("button");
                     descriptionBtnNew.classList.add("descriptionBtn");
                     descriptionBtnNew.textContent = "Description";
 
+        
                     const descriptionDiv = document.createElement("div");
-                    descriptionDiv.classList.add("descriptionDiv");
-                    descriptionDiv.textContent = `${items.description}`;
-
+                    descriptionDiv.classList.add("descriptionDiv")
+                    descriptionDiv.textContent = `${items.description}`
+        
                     const descriptionBtnClose = document.createElement("button");
                     descriptionBtnClose.classList.add("descriptionBtnClose");
                     descriptionBtnClose.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
 
-                    descriptionDiv.append(descriptionBtnClose);
+                    descriptionDiv.append(descriptionBtnClose)
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
-                    accessoireImg.append(imgNewDiv);
+                    imgPatronContainerPage.append(imgNewDiv);
+                    containerPatronsPage.append(imgPatronContainerPage);
 
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";
-                    });
-                    descriptionBtnClose.addEventListener("click", () => {
+                    })
+                    descriptionBtnClose.addEventListener("click", ()=> {
                         descriptionDiv.style.display = "none";
-                    });
-                });
-            } catch (error) {
+                    })
+                })
+            }
+            catch (error) {
                 console.error('Erreur chargement donnée:', error);
             }
-        });
-}
+        })
+    // }

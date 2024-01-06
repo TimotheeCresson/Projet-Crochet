@@ -5,7 +5,11 @@ fetch("./data.json")
     .then((response)=> response.json())
     .then((data) => {
         try{
+            const projetContainer = document.querySelector(".projetContainer")
             const imgProjectNew = document.querySelector(".imgProjetNouveautés")
+            if (projetContainer.querySelector(".imgProjectNew")) {
+                return;
+            }
             let newCreations = [];
             console.log(imgProjectNew);
 
@@ -55,10 +59,20 @@ fetch("./data.json")
                     descriptionBtnClose.addEventListener("click", ()=> {
                         descriptionDiv.style.display = "none";
                     })
+                    saveNewProjetData(data.nouveautés);
                 })
+                
             }
         catch(error) {
             console.error('Erreur chargement donnée:', error);
         }
     })
+    function saveNewProjetData(newCreations) {
+                    // Vérifiez si les données existent déjà dans le localStorage
+                    const storedData = localStorage.getItem('newProjetData');
+                    if (!storedData) {
+                        // Si non, enregistrez les données dans le localStorage
+                        localStorage.setItem('newProjetData', JSON.stringify(newCreations));
+                    }
+                }
 }

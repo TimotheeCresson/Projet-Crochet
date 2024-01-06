@@ -2,25 +2,20 @@
 
 export function panier() {
     const panier = document.getElementById("Panier");
-    const home = document.getElementById("home");
 
     console.log(panier);
 
-    function sauvegarderContenu() {
-        var contenuDiv = document.getElementById('allContent').innerHTML;
-        localStorage.setItem('contenuDivSauvegarde', contenuDiv);
-    }
 
     // Fonction pour restaurer le contenu de la div container
     function restaurerContenu() {
-        var contenuDivSauvegarde = localStorage.getItem('contenuDivSauvegarde');
-        if (contenuDivSauvegarde) {
-            document.getElementById('allContent').innerHTML = contenuDivSauvegarde;
+        var contenuDivSauvegardePanier = localStorage.getItem('contenuDivSauvegardePanier');
+        if (contenuDivSauvegardePanier) {
+            document.getElementById('allContent').innerHTML = contenuDivSauvegardePanier;
         }
     }
 
     panier.addEventListener("click", ()=> {
-        sauvegarderContenu();
+        // sauvegarderContenu();
         const allContent = document.getElementById('allContent');
         allContent.innerHTML = "";
 
@@ -40,10 +35,5 @@ export function panier() {
             restaurerContenu();
         })
     })
-
-    home.addEventListener("click", ()=> {
-        restaurerContenu();
-    })
-
 
 }

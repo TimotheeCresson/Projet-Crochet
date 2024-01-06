@@ -158,3 +158,31 @@ footer {
 .fa-envelope:hover {
     color: rgb(199, 75, 75);
 }
+
+
+/* Conditions générales de ventes */
+
+.containerCondition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto 100px;
+}
+.containerCondition h2 {
+    font-size: 1.5em;
+    font-family: var(--police-Karla-Bold);
+    margin: 40px 0 20px 0;
+}
+.containerCondition h4 {
+    font-size: 1em;
+    font-family: var(--police-Karla-Regular);
+    color: rgb(94, 91, 91);
+    margin: 20px 0 10px 0;
+    letter-spacing: -0.2px;
+}
+.containerCondition p {
+    font-family: var(--police-Karla-Regular);
+    margin-bottom: 20px;
+}
+
