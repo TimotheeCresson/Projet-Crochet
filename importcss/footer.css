@@ -93,13 +93,13 @@ footer {
 
 .titleFooterSection2::after {
     content: "";
-    width: 1000%;
+    width: 2000%;
     left: 100%; /* Part vers la droite */
 }
 
 .titleFooterSection2::before {
     content: "";
-    width: 1000%;
+    width: 2000%;
     right: 100%; /* Part vers la gauche */
 }
 .footerBottom {
