@@ -1,5 +1,5 @@
 // import  home from './importJs/home.js';
-import {createCarrousel, resetSlider} from './importJs/slider.js';
+import {createCarrousel, startSlider} from './importJs/slider.js';
 import { newProjet } from './importJs/newProjet.js';
 import { boutique } from './importJs/boutique.js';
 import { accessoire } from './importJs/accessoire.js';
@@ -14,6 +14,7 @@ import { about } from './importJs/about.js';
     const barreNavDisplay = document.querySelector('.barreNavDisplay');
 
 function init() {
+    console.log('Initializing...');
     // Appelle la fonction pour créer le carrousel
     createCarrousel();
     newProjet();
@@ -32,7 +33,8 @@ function sauvegarderContenu() {
 
 
 function restaurerContenu() {
-    console.log('Avant la restauration du contenu');
+    // console.log('Avant la restauration du contenu');
+    console.log('Restoring content...');
     var contenuDivSauvegardePanier = localStorage.getItem('contenuDivSauvegardePanier');
     if (contenuDivSauvegardePanier) {
         console.log('Contenu restauré:', contenuDivSauvegardePanier);
@@ -40,18 +42,11 @@ function restaurerContenu() {
 
         // Appellez les fonctions d'initialisation de chaque module après la restauration du contenu
         init();
-        resetSlider();
+        // resetSlider();
+        startSlider();
     }
     
 }
-
-// function resetSliderAnimations() {
-//     // Importez votre module de slider
-//     import { resetAnimations } from './importJs/slider.js';
-    
-//     // Appelez la fonction de réinitialisation du slider
-//     resetAnimations();
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
@@ -63,25 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
         restaurerContenu();
     });
     
-
-    inputCheck.addEventListener('change', function () {
-        if (this.checked) {
-            openMenu.style.display = "none";
-            barreNavDisplay.style.display = "block";
-            setTimeout(() => {
-                barreNav.classList.add('active');
-            }, 300);
-        } else {
-            barreNav.classList.remove('active')
-            setTimeout(() => {
-                openMenu.style.display = "block";
-                barreNavDisplay.style.display = "none";
-            }, 1000);
-        }
-    });
 })
 
-
+inputCheck.addEventListener('change', function () {
+    if (this.checked) {
+        openMenu.style.display = "none";
+        barreNavDisplay.style.display = "block";
+        setTimeout(() => {
+            barreNav.classList.add('active');
+        }, 300);
+    } else {
+        barreNav.classList.remove('active')
+        setTimeout(() => {
+            openMenu.style.display = "block";
+            barreNavDisplay.style.display = "none";
+        }, 1000);
+    }
+});
 
 // document.addEventListener('DOMContentLoaded', ()=> {
 //     init()

@@ -2,7 +2,7 @@
 
 // Slider 
 export function createCarrousel(){
-
+    console.log('Creating carousel...');
 
     const carrouselDiv = document.querySelector(".carrousel");
     const carrouselContainer = document.createElement("div");
@@ -53,40 +53,21 @@ export function createCarrousel(){
         startSlider();
     }
 
-
-    export function resetSlider() {
-        const sliderImages = document.querySelectorAll(".slider-image");
-        let currentIndex = 0;
-    
-        function showImage(index) {
-            sliderImages.forEach((image, i) => {
-                image.style.display = i === index ? "block" : "none";
-                // Réinitialiser la classe qui déclenche l'animation
-                image.classList.remove("animate");
-                void image.offsetWidth; // Forcez une réévaluation du style pour déclencher une nouvelle animation
-                image.classList.add("animate");
-            });
-        }
-    
-        // Réinitialiser le slider à son état initial
-        currentIndex = 0;
-        showImage(currentIndex);
-    }
-
-
-
-    function startSlider() {
+    export function startSlider() {
         const sliderImages = document.querySelectorAll(".slider-image");
         // console.log(sliderImages);
         let currentIndex = 0; 
 
         function showImage(index) {
             sliderImages.forEach((image, i) => {
+            // console.log('Showing image at index:', index);
+
                 image.style.display = i === index ? "block" : "none";
                 console.log(index, i);
             });
         }
         function showNextImage() {
+            // console.log('Showing next image');
             currentIndex++ 
             if (currentIndex >= sliderImages.length) {
                 currentIndex=0;
@@ -95,6 +76,7 @@ export function createCarrousel(){
         }
 
         function showPreviousImage() {
+            // console.log('Showing previous image');
             currentIndex--;
             if (currentIndex < 0) {
                 currentIndex = sliderImages.length - 1;
