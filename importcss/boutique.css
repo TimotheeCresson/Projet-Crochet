@@ -3,6 +3,16 @@
     flex-direction: column;
     align-items: center;
 }
+
+/* styliser les images de la boutique */
+.apparitionCreation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
 .imgDivElement {
     position: relative;
     width: 150px;
@@ -42,9 +52,7 @@
     gap: 10px;
 }
 
-
-
-
+/* select de la boutique */
 #allCreation {
     background: lightblue;
     color: var(--primary-color);
@@ -52,26 +60,9 @@
     font-family: var(--police-Karla-Regular);
     font-weight: 300;
 }
-#recherche {
-    background: lightblue;
-    color: var(--primary-color);
-    padding: 5px 10px;
-    font-family: var(--police-Karla-Regular);
-    font-weight: 300;
-    cursor: pointer;
-}
-#rechercherProduits{
-    padding: 5px 10px;
-}
-#btnSuite {
-    background: lightblue;
-    color: var(--primary-color);
-    padding: 5px 10px;
-    font-family: var(--police-Karla-Regular);
-    font-weight: 300;
-    cursor: pointer;
-}
-.creationContainer {
+
+/*  bouton recherche et input texte */
+.creationContainerInput {
     margin: 40px;
     display: flex;
     flex-direction: column;
@@ -83,15 +74,68 @@
     display: flex;
     gap: 10px;
 }
-.apparitionCreation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+#recherche {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-family: var(--police-Karla-Regular);
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 4px double lightblue;
+    text-align: center;
+    transition: all 0.5s;
+    margin: 5px;
 }
+
+
+#recherche span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  #recherche span:after {
+    content: "\00bb";
+    color: black;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+  }
+  #recherche:hover {
+    color: black;
+    background-color: lightblue;
+    border: 4px double rgb(123, 186, 207);
+  }
+  #recherche:hover span {
+    padding-right: 15px;
+  }
+  #recherche:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+#rechercherProduits{
+    padding: 3px 20px;
+    width: 200px;
+}
+
+/* info du bouton description */
 .infoDiv p {
     font-size: 0.8em;
     font-family: var(--police-Karla-Regular);
     text-transform: capitalize;
+}
+
+/* bouton lire suite */
+#btnSuite {
+    background: lightblue;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-family: var(--police-Karla-Regular);
+    font-weight: 300;
+    cursor: pointer;
 }
