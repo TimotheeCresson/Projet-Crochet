@@ -60,3 +60,42 @@ h1 {
     cursor: pointer;
     border-radius: 0.5em;
 }
+
+
+/* Parti compte */
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    justify-content: center;
+}
+
+.formulaire {
+    width: calc(50% - 10px); 
+    margin: 5px; 
+}
+
+.formColumn form {
+    margin: 20px;
+}
+
+.formConnection,
+.formEnregistrement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formConnection input,
+.formConnection label,
+.formEnregistrement input,
+.formEnregistrement label {
+    margin-bottom: 30px; /* Adjust the margin value as needed */
+}

@@ -26,36 +26,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="main.js" defer type="module"></script>
 </head>
 <body>
+<div class="container">
+    <div class="formulaire">
+        <div class="formConnection">
+            <div class="formColumn">
+            <h2>Se connecter</h2>
+                <form method="post" action="">
+                    <label for="username">Identifiants ou email :</label>
+                    <input type="text" name="username" required>
+                    <br>
+                    <label for="password">Password :</label>
+                    <input type="password" name="password" required>
+                    <br>
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<h2>Se connecter</h2>
-<form method="post" action="">
-    <label for="username">Identifiants ou email</label>
-    <input type="text" name="username" required>
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-
-    <button type="submit">Se connecter</button>
-</form>
-
-<h2>Vous n'avez pas encore de compte?</h2>
-<h3>Créez un compte</h3>
-
-<form method="post" action="">
-    <label for="identifiant">Identifiant</label>
-    <input type="text" name="identifiant" required>
-
-    
-    <label for="email">Email</label>
-    <input type="text" name="email" required>
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-
-
-
-    <button type="submit">Se connecter</button>
-</form>
-
+    <div class="formulaire">
+        <div class="formEnregistrement">
+            <h2>Vous n'avez pas encore de compte?</h2>
+            <h3>Créez un compte</h3>
+            <div class="formColumn">
+                <form method="post" action="">
+                    <label for="identifiant">Identifiant :</label>
+                    <input type="text" name="identifiant" required>
+                    <br>
+                    <label for="email">Email :</label>
+                    <input type="text" name="email" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" required>
+                    <br>
+                    <button type="submit">Enregistrer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>
