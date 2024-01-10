@@ -50,3 +50,13 @@ h1 {
     width: 100%;
     margin-top: 30px;
 }
+
+.btnAjoutPanier {
+    background: lightblue;
+    font-size: 0.6em;
+    color: black;
+    font-family: var(--police-Karla-Regular);
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 0.5em;
+}

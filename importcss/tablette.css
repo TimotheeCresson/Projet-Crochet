@@ -32,4 +32,15 @@
         height: 250px;
         width: 250px;
     }
+    
+    .btnAjoutPanier {
+        font-size: 0.8em;
+    }
+
+    .descriptionBtn {
+        font-size: 0.8em;
+    }
+    .infoDiv p {
+        font-size: 0.8em;
+    }
 /* } */

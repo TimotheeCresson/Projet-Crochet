@@ -1,7 +1,8 @@
 
 "use strict";
+import { btnAjoutPanier } from './btn.js';
 export function newProjet() {
-fetch("./data.json")
+fetch("/data.json")
     .then((response)=> response.json())
     .then((data) => {
         try{
@@ -52,6 +53,10 @@ fetch("./data.json")
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     imgProjectNew.append(imgNewDiv);
+
+                    // on importe le bouton ajout Panier
+                    btnAjoutPanier(infoDivNew);
+
 
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";

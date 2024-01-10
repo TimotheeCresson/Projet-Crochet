@@ -76,14 +76,14 @@
 }
 #recherche {
     display: inline-block;
-    background: white;
+    background: rgb(247, 253, 255);
     color: var(--primary-color);
     padding: 5px 10px;
     font-family: var(--police-Karla-Regular);
     font-weight: 300;
     cursor: pointer;
     border-radius: 5px;
-    border: 4px double lightblue;
+    border: 4px double rgb(123, 186, 207);;
     text-align: center;
     transition: all 0.5s;
     margin: 5px;
@@ -125,7 +125,7 @@
 
 /* info du bouton description */
 .infoDiv p {
-    font-size: 0.8em;
+    font-size: 0.6em;
     font-family: var(--police-Karla-Regular);
     text-transform: capitalize;
 }

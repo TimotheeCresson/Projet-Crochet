@@ -160,14 +160,21 @@
             });
         });
 
-        // accès à la page patrons
         $(document).ready(function () {
-            $('#btnPagePatrons').click(function (e) {
-                e.preventDefault();
-                $('#allContent').load('./html/patrons.html');
-            });
+    // Function to load patrons.html content
+    function loadPatronsPage() {
+        $('#allContent').load('./html/patrons.html', function () {
+            // Add a class to indicate that content is loaded
+            $('#allContent').addClass('content-loaded');
         });
-
+    }
+    // Event delegation for the "Patron" button
+    $(document).on('click', '#btnPagePatrons', function (e) {
+        e.preventDefault();
+        // Always reload the content, even if it was loaded before
+        loadPatronsPage();
+    });
+        })
     </script>
 </body>
 </html>

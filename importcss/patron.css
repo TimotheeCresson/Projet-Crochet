@@ -3,11 +3,14 @@
     flex-direction: column;
     align-items: center;
 }
+
+/* 1er Container principal des images des patrons */
 .patronContainer {
     width: 100%;
     aspect-ratio: 1/1;
     position: relative;
 }
+/* container contenant les images des patrons */
 .patronImgContainer {
     position: relative;
     height: 100%;
@@ -66,6 +69,7 @@
     top: 0;
     box-shadow: 5px 5px 5px 0px black;
 }
+
 
 @keyframes rotation {
     0% {

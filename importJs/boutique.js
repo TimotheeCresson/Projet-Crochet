@@ -1,6 +1,8 @@
 "use strict";
+import { btnAjoutPanier } from './btn.js';
+
 export function boutique() {
-fetch("./data.json")
+fetch("/data.json")
     .then((response) => response.json())
     .then((data) => {
         try{
@@ -111,8 +113,8 @@ fetch("./data.json")
             imgCreation.alt = item.nom;
 
             // Creation de la div Info
-            const infoDiv = document.createElement("div");
-            infoDiv.classList.add("infoDiv");
+            const infoDivNew = document.createElement("div");
+            infoDivNew.classList.add("infoDiv");
 
             const nameCreation = document.createElement("p");
             nameCreation.textContent = item.nom;
@@ -133,11 +135,14 @@ fetch("./data.json")
             descriptionBtnClose.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
 
             descriptionDiv.append(descriptionBtnClose)
-            infoDiv.append(nameCreation, priceCreation, descriptionBtn);
+            infoDivNew.append(nameCreation, priceCreation, descriptionBtn);
 
-            imgDivElement.append(imgCreation, infoDiv, descriptionDiv);
+            imgDivElement.append(imgCreation, infoDivNew, descriptionDiv);
             creationImgContainer.append(imgDivElement);
             // console.log(`i: ${i}, selectedArray : ${item}, currentIndex: ${currentSetIndex}, endIndex : ${endIndex}`);
+
+            // on importe le bouton ajout Panier
+            btnAjoutPanier(infoDivNew);
 
             descriptionBtn.addEventListener("click", () => {
                 descriptionDiv.style.display = "flex";
@@ -165,8 +170,8 @@ fetch("./data.json")
             imgCreation.alt = item.nom;
 
             // Creation de la div Info
-            const infoDiv = document.createElement("div");
-            infoDiv.classList.add("infoDiv");
+            const infoDivNew = document.createElement("div");
+            infoDivNew.classList.add("infoDiv");
 
             const nameCreation = document.createElement("p");
             nameCreation.textContent = item.nom;
@@ -187,11 +192,13 @@ fetch("./data.json")
             descriptionBtnClose.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
 
             descriptionDiv.append(descriptionBtnClose)
-            infoDiv.append(nameCreation, priceCreation, descriptionBtn);
+            infoDivNew.append(nameCreation, priceCreation, descriptionBtn);
 
-            imgDivElement.append(imgCreation, infoDiv, descriptionDiv);
+            imgDivElement.append(imgCreation, infoDivNew, descriptionDiv);
             creationImgContainer.append(imgDivElement);
             // console.log(`i: ${i}, selectedArray : ${item}, currentIndex: ${currentSetIndex}, endIndex : ${endIndex}`);
+
+            btnAjoutPanier(infoDivNew);
 
             descriptionBtn.addEventListener("click", () => {
                 descriptionDiv.style.display = "flex";

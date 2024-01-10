@@ -1,3 +1,20 @@
+<?php 
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Process the form data (e.g., handle user registration)
+
+    // Sample registration logic (replace with your actual logic)
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Perform validation and database operations
+    // ...
+
+    // Redirect or display a success message
+    header("Location: registration_success.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +26,36 @@
     <script src="main.js" defer type="module"></script>
 </head>
 <body>
-    <header>
-        <!-- ... (le reste du code de l'en-tête) ... -->
-    </header>
 
-    <div class="main-Container" id="allContent">
-        <section class="compte">
-            <div>hello</div>
-        </section>
-    </div>
+<h2>Se connecter</h2>
+<form method="post" action="">
+    <label for="username">Identifiants ou email</label>
+    <input type="text" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Se connecter</button>
+</form>
+
+<h2>Vous n'avez pas encore de compte?</h2>
+<h3>Créez un compte</h3>
+
+<form method="post" action="">
+    <label for="identifiant">Identifiant</label>
+    <input type="text" name="identifiant" required>
+
+    
+    <label for="email">Email</label>
+    <input type="text" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+
+
+
+    <button type="submit">Se connecter</button>
+</form>
+
 </body>
 </html>

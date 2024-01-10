@@ -1,17 +1,18 @@
+
 "use strict";
+
 export function patron() {
-    fetch("./data.json")
+    fetch("/data.json")
         .then((response) => response.json())
         .then((data) => {
             try {
+                
                 const patronImg = document.querySelector(".patronImgContainer");
     
                 let patronArray = [];
     
                 patronArray = data.patrons
                 
-
-
                 patronArray.forEach((items, index) => {
                     const imgNewDiv = document.createElement("div");
                     imgNewDiv.classList.add("imgPatron", `imgCercle${index}`);
@@ -47,13 +48,13 @@ export function patron() {
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     patronImg.append(imgNewDiv);
-    
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";
                     })
                     descriptionBtnClose.addEventListener("click", ()=> {
                         descriptionDiv.style.display = "none";
                     })
+                    
                 })
             }
             catch (error) {

@@ -1,5 +1,6 @@
+import { btnAjoutPanier } from './btn.js';
 export function accessoire() {
-    fetch("./data.json")
+    fetch("/data.json")
         .then((response) => response.json())
         .then((data) => {
             try {
@@ -27,7 +28,7 @@ export function accessoire() {
 
                     const priceCreationNew = document.createElement("p");
                     priceCreationNew.textContent = `Prix: ${items.prix} €`;
-
+                    
                     const descriptionBtnNew = document.createElement("button");
                     descriptionBtnNew.classList.add("descriptionBtn");
                     descriptionBtnNew.textContent = "Description";
@@ -40,10 +41,14 @@ export function accessoire() {
                     descriptionBtnClose.classList.add("descriptionBtnClose");
                     descriptionBtnClose.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
 
+
                     descriptionDiv.append(descriptionBtnClose);
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     accessoireImg.append(imgNewDiv);
+
+                    // on importe le bouton ajout Panier
+                    btnAjoutPanier(infoDivNew);
 
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";
