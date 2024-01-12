@@ -1,22 +1,21 @@
 <?php 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Process the form data (e.g., handle user registration)
+session_start();
+$bdd = new PDO('mysql:host=localhost;dbname=compte_site_crochet;charset=utf8;', 'root', '');
+if(isset($_POST['connecter'])) {
+    if(!empty($_POST['username']) AND !empty($_POST['password'])) {
+        $username = htmlspecialchars($_POST['username']);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Sample registration logic (replace with your actual logic)
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        $insertUser = $bdd->prepare('INSERT INTO users(username, password) VALUES(?,?)');
 
-    // Perform validation and database operations
-    // ...
-
-    // Redirect or display a success message
-    header("Location: registration_success.php");
-    exit();
+        $insertUser->execute(array($username, $password));
+    } else {
+        echo "Veuillez compléter tous les champs...";
+    }
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="username">Identifiants ou email :</label>
                     <input type="text" name="username" required>
                     <br>
-                    <label for="password">Password :</label>
+                    <label for="password">Mot de passe :</label>
                     <input type="password" name="password" required>
                     <br>
-                    <button type="submit">Se connecter</button>
+                    <input type="submit" name="connecter" value="Se connecter">
                 </form>
             </div>
         </div>
@@ -56,8 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="email">Email :</label>
                     <input type="text" name="email" required>
                     <br>
-                    <label for="password">Password:</label>
+                    <label for="password">Mot de passe:</label>
                     <input type="password" name="password" required>
+                    <br>
+                    <label for="password">Confirmer votre mot de passe:</label>
+                    <input type="password" name="passwordBis" required>
                     <br>
                     <button type="submit">Enregistrer</button>
                 </form>
