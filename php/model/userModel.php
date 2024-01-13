@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . "/../../ressources/services/_pdo.php";
+require_once __DIR__ . "/../../services/_pdo.php";
 
 /**
  * On récupère tous les utilisateurs
@@ -28,6 +28,19 @@ function getUserById(string $id):array|bool {
     $sql = $pdo->prepare("SELECT * FROM users WHERE id_User = :id");
 
     $sql->execute(["id"=>$id]);
+    return $sql->fetch();
+}
+
+/**
+ * on récupère un utilisateur par son identifiant
+ *
+ * @param string $username
+ * @return array|boolean
+ */
+function getUserByUsername(string $username):array|bool {
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $sql->execute([$username]);
     return $sql->fetch();
 }
 
