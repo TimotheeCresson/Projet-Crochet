@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site vitrine Crochet</title>
     <!-- <script src="main.js" defer type="module"></script> -->
-    <script src="/JS/patronPage.js" defer ></script>
+    <script src="/JS/patronPage.js" type="module" defer></script>
 </head>
 <body>
 <div class="containerPatrons">

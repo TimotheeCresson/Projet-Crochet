@@ -51,17 +51,17 @@ function init() {
     
 // }
 
-infoDivAllPage.forEach((div) => {
-    // Create a new button element
-    console.log(div);
-    const btn = document.querySelector(".descriptionBtn");
-    console.log(btn);
-    const newButton = document.createElement('button');
-    newButton.textContent = "New Button"; // Set button text as needed
+// infoDivAllPage.forEach((div) => {
+//     // Create a new button element
+//     console.log(div);
+//     const btn = document.querySelector(".descriptionBtn");
+//     console.log(btn);
+//     const newButton = document.createElement('button');
+//     newButton.textContent = "New Button"; // Set button text as needed
 
-    // Append the new button to the current div
-    div.appendChild(newButton);
-});
+//     // Append the new button to the current div
+//     div.appendChild(newButton);
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
