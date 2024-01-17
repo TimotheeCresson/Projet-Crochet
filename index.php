@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<?php
+// Inclure le fichier d'en-tête
+require "./php/template/_header.php";
+
+// Inclure le fichier de contenu principal
+require './php/template/_main.php';
+
+// Inclure le fichier de pied de page
+require './php/template/_footer.php';
+
+
+ /* <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -89,7 +100,7 @@
             <button class="btnPatrons" id="btnPagePatrons">Accéder aux différents patrons</button>
         </section>
     </div>
-
+    </body>
 
     <footer>
         <span class="titleFooterSection1">Boutique</span>
@@ -132,7 +143,7 @@
         $(document).ready(function () {
             $('#compteLink').click(function (e) {
                 e.preventDefault();
-                $('#allContent').load('./php/view/page_compte.php');
+                $('#allContent').load('./php/controller/authController.php');
             });
         });
 
@@ -176,5 +187,7 @@
     });
         })
     </script>
-</body>
-</html>
+
+</html> */
+    
+?>

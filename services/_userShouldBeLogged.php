@@ -12,12 +12,12 @@ if (session_start()===PHP_SESSION_NONE) {
  * @param string $redirection on redirige à notre page de connexion de compte
  * @return void
  */
-function userShouldBeLogged(bool $logged = true, string $redirection = "../php/view/page_compte.php"): void {
+function userShouldBeLogged(bool $logged = true, string $redirection = "/"): void {
 
-    if ($redirection) {
-        // message si une redirection est effectuée
-        throw new Exception("Redirection effectuée vers $redirection");
-    }
+    // if ($redirection) {
+    //     // message si une redirection est effectuée
+    //     throw new Exception("Redirection effectuée vers $redirection");
+    // }
     if ($logged) {
         if (isset($_SESSION["expire"])) {
 

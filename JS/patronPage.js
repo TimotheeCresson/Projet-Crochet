@@ -1,5 +1,5 @@
 "use strict";
-// import { btnAjoutPanier } from '../importJs/btn.js';
+// import { btnAjoutPanier } from './../importJs/btn.js';
 
 
 // function patronMain() {
@@ -8,7 +8,7 @@
         .then((data) => {
             try {
                 console.log('patronPage.js script is executed');
-                const containerPatronsPage = document.querySelector(".containerPatrons");
+                // const containerPatronsPage = document.querySelector(".containerPatrons");
                 const imgPatronContainerPage = document.querySelector(".imgPatronContainerPage"); 
     
                 let patronArray = [];
@@ -50,8 +50,8 @@
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     imgPatronContainerPage.append(imgNewDiv);
-                    containerPatronsPage.append(imgPatronContainerPage);
-                    btnAjoutPanier(infoDivNew);
+                    // containerPatronsPage.append(imgPatronContainerPage);
+                    // btnAjoutPanier(infoDivNew);
 
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";

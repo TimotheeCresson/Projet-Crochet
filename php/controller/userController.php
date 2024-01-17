@@ -2,10 +2,9 @@
 
 require __DIR__ ."/../../services/_userShouldBeLogged.php";
 require __DIR__ ."/../model/userModel.php";
-require __DIR__ . "/../view/page_compte.php";
 
 function enregistrement(): void {
-    userShouldBeLogged(false, "../view/page_compte.php");
+    userShouldBeLogged(false, "../controller/authController.php");
 
     $identifiant = $emailInscription = $passwordInscription = "";
     $error = [];
@@ -19,7 +18,7 @@ function enregistrement(): void {
         else {
             $identifiant = clean_data($_POST["identifiant"]);
             if (!preg_match("/^[a-zA-Z' -]{2,25}$/", $identifiant)) {
-                $error["identifiant"] = "Veuillez saisir un nom d'utilisateur valide";
+                $error["identifiant"] = "Veuillez saisir un nom d'identifiant valide";
             }
         }
         // Traitement email
@@ -74,5 +73,6 @@ function enregistrement(): void {
             exit;
         }
     }
-    
+    require __DIR__ . "/../view/page_compte.php";
 }
+enregistrement();

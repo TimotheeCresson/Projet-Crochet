@@ -1,11 +1,11 @@
 // import  home from './importJs/home.js';
-import {createCarrousel, startSlider} from './importJs/slider.js';
+import {createCarrousel} from './importJs/slider.js';
 import { newProjet } from './importJs/newProjet.js';
 import { boutique } from './importJs/boutique.js';
 import { accessoire } from './importJs/accessoire.js';
 import { patron } from './importJs/patron.js';
 import { panier } from './importJs/panier.js';
-import { about } from './importJs/about.js';
+// import { about } from './importJs/about.js';
 
 // import { resetAnimations } from './importJs/slider.js';
 
@@ -25,43 +25,43 @@ function init() {
     accessoire();
     patron();
     panier();
-    about();
+    // about();
     
     // sauvergarder le contenu de allContent
-    sauvegarderContenu();
+    // sauvegarderContenu();
     }
-function sauvegarderContenu() {
-        localStorage.setItem('contenuDivSauvegardePanier', document.getElementById('allContent').innerHTML);
-    }
+// function sauvegarderContenu() {
+//         localStorage.setItem('contenuDivSauvegardePanier', document.getElementById('allContent').innerHTML);
+//     }
 
 
-function restaurerContenu() {
-    // console.log('Avant la restauration du contenu');
-    console.log('Restoring content...');
-    var contenuDivSauvegardePanier = localStorage.getItem('contenuDivSauvegardePanier');
-    if (contenuDivSauvegardePanier) {
-        console.log('Contenu restauré:', contenuDivSauvegardePanier);
-        document.getElementById('allContent').innerHTML = contenuDivSauvegardePanier;
+// function restaurerContenu() {
+//     // console.log('Avant la restauration du contenu');
+//     console.log('Restoring content...');
+//     var contenuDivSauvegardePanier = localStorage.getItem('contenuDivSauvegardePanier');
+//     if (contenuDivSauvegardePanier) {
+//         console.log('Contenu restauré:', contenuDivSauvegardePanier);
+//         document.getElementById('allContent').innerHTML = contenuDivSauvegardePanier;
 
-        // Appellez les fonctions d'initialisation de chaque module après la restauration du contenu
-        init();
-        // resetSlider();
-        startSlider();
-    }
+//         // Appellez les fonctions d'initialisation de chaque module après la restauration du contenu
+//         init();
+//         // resetSlider();
+//         startSlider();
+//     }
     
-}
+// }
 
-// infoDivAllPage.forEach((div) => {
-//     // Create a new button element
-//     console.log(div);
-//     const btn = document.querySelector(".descriptionBtn");
-//     console.log(btn);
-//     const newButton = document.createElement('button');
-//     newButton.textContent = "New Button"; // Set button text as needed
+infoDivAllPage.forEach((div) => {
+    // Create a new button element
+    console.log(div);
+    const btn = document.querySelector(".descriptionBtn");
+    console.log(btn);
+    const newButton = document.createElement('button');
+    newButton.textContent = "New Button"; // Set button text as needed
 
-//     // Append the new button to the current div
-//     div.appendChild(newButton);
-// });
+    // Append the new button to the current div
+    div.appendChild(newButton);
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 
- const home = document.getElementById("home");
+//  const home = document.getElementById("home");
 
-    home.addEventListener("click", () => {
-        restaurerContenu();
-    });
+//     home.addEventListener("click", () => {
+//         restaurerContenu();
+//     });
 
 inputCheck.addEventListener('change', function () {
    if (this.checked) {

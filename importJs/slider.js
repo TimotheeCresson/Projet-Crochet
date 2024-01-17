@@ -6,9 +6,9 @@ export function createCarrousel(){
 
     const carrouselDiv = document.querySelector(".carrousel");
     const carrouselContainer = document.createElement("div");
-    if (carrouselDiv.querySelector(".carrousel-container")) {
-        return;
-    }
+    // if (carrouselDiv.querySelector(".carrousel-container")) {
+    //     return;
+    // }
     const images = ["./img/licorne.JPG", "./img/elephant.JPG", "./img/lapin.JPG", "./img/trapilho.JPG", "./img/trapilho2.JPG"];
     const dotsElements = [];
     const imagesElements = [];
