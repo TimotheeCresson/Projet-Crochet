@@ -8,7 +8,7 @@ import { btnAjoutPanier } from '../importJs/btn.js';
         .then((data) => {
             try {
                 // console.log('patronPage.js script is executed');
-                const containerPatronsPage = document.querySelector(".containerPatrons");
+                // const containerPatronsPage = document.querySelector(".containerPatrons");
                 const imgPatronContainerPage = document.querySelector(".imgPatronContainerPage"); 
                 console.log(imgPatronContainerPage);
                 let patronArray = [];
@@ -19,7 +19,7 @@ import { btnAjoutPanier } from '../importJs/btn.js';
                     const imgNewDiv = document.createElement("div");
                     imgNewDiv.classList.add("imgNewDiv");
                     const imgElement = document.createElement("img");
-                    imgElement.src = `./img/${items.photo}`;
+                    imgElement.src = `/img/${items.photo}`;
                     imgElement.alt = items.nom;
                     imgElement.classList.add("imgCreationNew");
 
@@ -50,7 +50,7 @@ import { btnAjoutPanier } from '../importJs/btn.js';
                     infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     imgPatronContainerPage.append(imgNewDiv);
-
+                    // containerPatronsPage.append(imgPatronContainerPage)
                     // on importe le bouton ajout Panier
                     btnAjoutPanier(infoDivNew);
                     
