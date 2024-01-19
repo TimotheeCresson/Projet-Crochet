@@ -1,16 +1,14 @@
 // btn.js
-import { addToCart } from '../shoppingCart/cart.js';
+// import { addToCart } from '../shoppingCart/cart.js';
 
-export function btnAjoutPanier(infoDiv, item) {
+export function btnAjoutPanier(infoDiv, itemCallback) {
     const newButton = document.createElement('button');
     newButton.textContent = "Ajouter au panier";
     newButton.classList.add("btnAjoutPanier");
 
     newButton.addEventListener('click', () => {
-        addToCart(item);
-        alert('Item added to cart!');
+        itemCallback(); // Appel de la fonction fournie en argument
     });
 
     infoDiv.appendChild(newButton);
 }
-

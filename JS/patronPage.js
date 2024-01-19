@@ -1,6 +1,6 @@
 "use strict";
 import { btnAjoutPanier } from '../importJs/btn.js';
-
+import { addToCart } from '../shoppingCart/cart.js';
 
 // function patronMain() {
     fetch("/data.json")
@@ -8,7 +8,7 @@ import { btnAjoutPanier } from '../importJs/btn.js';
         .then((data) => {
             try {
                 // console.log('patronPage.js script is executed');
-                // const containerPatronsPage = document.querySelector(".containerPatrons");
+                const containerPatronsPage = document.querySelector(".containerPatrons");
                 const imgPatronContainerPage = document.querySelector(".imgPatronContainerPage"); 
                 console.log(imgPatronContainerPage);
                 let patronArray = [];
@@ -46,14 +46,42 @@ import { btnAjoutPanier } from '../importJs/btn.js';
                     descriptionBtnClose.classList.add("descriptionBtnClose");
                     descriptionBtnClose.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
 
+                    // Création du bouton ajouter au panier
+                    // const addToCartBtn = document.createElement("button");
+                    // addToCartBtn.classList.add("addToCartBtn");
+                    // addToCartBtn.textContent = "Ajouter au panier";
+
+                    // addToCartBtn.addEventListener("click", () => {
+                    //     const patronInfo = {
+                    //         nom: items.nom,
+                    //         prix: items.prix,
+                    //         photo: items.photo,
+                    //         // Ajoutez d'autres informations nécessaires au panier
+                    //     };
+                    //     addToCart(patronInfo);
+                    //     alert('Item added to cart!');
+                    // });
+                   // Appel à btnAjoutPanier pour créer et attacher le bouton
+                    
+
+
                     descriptionDiv.append(descriptionBtnClose);
-                    infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew);
+                    infoDivNew.append(nameCreationNew, priceCreationNew, descriptionBtnNew,);
                     imgNewDiv.append(imgElement, infoDivNew, descriptionDiv);
                     imgPatronContainerPage.append(imgNewDiv);
-                    // containerPatronsPage.append(imgPatronContainerPage)
+                    containerPatronsPage.append(imgPatronContainerPage)
                     // on importe le bouton ajout Panier
-                    btnAjoutPanier(infoDivNew);
                     
+                    btnAjoutPanier(infoDivNew, () => {
+                        const patronInfo = {
+                            nom: items.nom,
+                            prix: items.prix,
+                            photo: items.photo,
+                            // Ajoutez d'autres informations nécessaires au panier
+                        };
+                        addToCart(patronInfo);
+                        alert('Item added to cart!');
+                    });
 
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";
