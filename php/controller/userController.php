@@ -4,7 +4,7 @@ require __DIR__ ."/../../services/_userShouldBeLogged.php";
 require __DIR__ ."/../model/userModel.php";
 
 function enregistrement(): void {
-    userShouldBeLogged(false, "../controller/authController.php");
+    userShouldBeLogged(false, "/");
 
     $identifiant = $emailInscription = $passwordInscription = "";
     $error = [];
@@ -68,10 +68,10 @@ function enregistrement(): void {
         if(empty($error))
         {
             addingUser($identifiant, $emailInscription, $passwordInscription);
-            
             header("Location: /");
-            exit;
+        exit;
         }
+       
     }
     require __DIR__ . "/../view/page_compte.php";
 }

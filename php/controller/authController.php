@@ -3,7 +3,7 @@ require __DIR__ . "/../../services/_userShouldBeLogged.php";
 require __DIR__ . "/../model/userModel.php";
 
 function gestionConnexionEnregistrement(): void {
-    userShouldBeLogged(false, "../view/page_compte.php");
+    userShouldBeLogged(false, "/");
 
     $email = $password = $identifiantInscription = $emailInscription = $passwordInscription = "";
     $error = [];
@@ -28,10 +28,19 @@ function gestionConnexionEnregistrement(): void {
                         $_SESSION["logged"] = true;
                         $_SESSION["username"] = $userEmail["username"];
                         $_SESSION["id_User"] = $userEmail["id_User"];
+                        $_SESSION["role"] = $userEmail["role"];
                         $_SESSION["expire"] = time() + 3600;
 
-                        header("Location: /");
-                        exit;
+                                        
+                        if ($_SESSION["role"] === "Admin") {
+                            header("Location: /php/view/adminCompte.php");  // Redirect to the admin page
+                            exit;
+                        } else {
+                            header("Location: /php/view/userCompte.php");   // Redirect to the regular user page
+                            exit;
+                        }
+                        // header("Location: /php/view/userCompte.php");
+                        // exit;
                     } else {
                         $error["connecter"] = "Email ou Mot de Passe Incorrecte (password)";
                     }
@@ -73,7 +82,7 @@ function gestionConnexionEnregistrement(): void {
                         $passwordInscription = password_hash($passwordInscription, PASSWORD_DEFAULT);
                         addingUser($identifiantInscription, $emailInscription, $passwordInscription);
 
-                        header("Location: /");
+                        header("Location: /php/view/userCompte.php");
                         exit;
                     }
                 }
@@ -87,19 +96,18 @@ function gestionConnexionEnregistrement(): void {
 gestionConnexionEnregistrement();
 
 
-// connexionUser();
-// function deconnexionUser() {
-//     userShouldBeLogged(true, "../view/deconnexionUser.php");
+function deconnexionUser() {
+    userShouldBeLogged(true, "/");
 
-//     unset($_SESSION);
-//     session_destroy();
+    unset($_SESSION);
+    session_destroy();
 
-//     setcookie("PHPSESSID", "", time()-3600);
+    setcookie("PHPSESSID", "", time()-3600);
     
-//     header("Location: ../../../view/page_compte.php");
-//     exit;
-// }
-
+    header("Location: /");
+    exit;
+}
+deconnexionUser();
 // function enregistrement(): void {
 //     userShouldBeLogged(false, "../controller/authController.php");
 

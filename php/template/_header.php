@@ -18,7 +18,7 @@
                 <input type="checkbox" id="check">
                     <li><a href="/index.php" id="home">Boutique</a></li>
                     <li><a href="/php/controller/authController.php" id="compteLink">Compte</a></li>
-                    <li><a href="/php/view/phpLink/panier.php" id="panier">Panier</a></li>
+                    <li><a href="/php/panier/panier.php" id="panier">Panier</a></li>
                     <li><a href="/php/view/phpLink/about.php" id="about">À Propos</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <label for="check" class="close-menu"><i class="fa-solid fa-circle-xmark"></i></label>

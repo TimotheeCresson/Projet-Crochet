@@ -51,13 +51,10 @@ function getUserByUsername(string $username):array|bool {
  * @param string $email
  * @return array|boolean
  */
-function getUserByEmail(string $email):array|bool {
+function getUserByEmail(string $email): array|bool {
     $pdo = connexionPDO();
-
-    $sql = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-
-    $sql->execute(["email"=>$email]);
-
+    $sql = $pdo->prepare("SELECT id_User, username, email, password, role FROM users WHERE email = :email");
+    $sql->execute(["email" => $email]);
     return $sql->fetch();
 }
 
@@ -99,6 +96,19 @@ function updateUserByIsId (string $id, string $username, string $email, string $
     $sql->execute([(int)$id, $username, $email, $password]);
 }
 
+function addRoleColumnIfNotExists(): void {
+    $pdo = connexionPDO();
+
+    // Check if the column already exists
+    $sqlCheck = $pdo->query("SHOW COLUMNS FROM users LIKE 'role'");
+    $columnExists = $sqlCheck->rowCount() > 0;
+
+    if (!$columnExists) {
+        // If the column doesn't exist, add it
+        $sql = $pdo->query("ALTER TABLE users ADD COLUMN role VARCHAR(255) DEFAULT 'user'");
+        $sql->execute();
+    }
+}
 
 
 ?>

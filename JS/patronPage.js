@@ -1,6 +1,6 @@
 "use strict";
 import { btnAjoutPanier } from '../importJs/btn.js';
-import { addToCart } from '../shoppingCart/cart.js';
+// import { addToCart } from '../shoppingCart/cart.js';
 
 // function patronMain() {
     fetch("/data.json")
