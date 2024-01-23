@@ -1,6 +1,6 @@
 "use strict";
 import { btnAjoutPanier } from './btn.js';
-import { addToCart } from '../shoppingCart/cart.js';
+// import { addToCart } from '../shoppingCart/cart.js';
 
 
 export function boutique() {
@@ -144,16 +144,17 @@ fetch("/data.json")
             // console.log(`i: ${i}, selectedArray : ${item}, currentIndex: ${currentSetIndex}, endIndex : ${endIndex}`);
 
             // on importe le bouton ajout Panier
-            btnAjoutPanier(infoDivNew, () => {
-                const patronInfo = {
-                    nom: item.nom,
-                    prix: item.prix,
-                    photo: item.photo,
-                    // Ajoutez d'autres informations nécessaires au panier
-                };
-                addToCart(patronInfo);
-                alert('Item added to cart!');
-            });
+            // btnAjoutPanier(infoDivNew, () => {
+            //     const patronInfo = {
+            //         nom: item.nom,
+            //         prix: item.prix,
+            //         photo: item.photo,
+            //         // Ajoutez d'autres informations nécessaires au panier
+            //     };
+            //     addToCart(patronInfo);
+            //     alert('Item added to cart!');
+            // });
+            btnAjoutPanier(infoDivNew, items);
 
             descriptionBtn.addEventListener("click", () => {
                 descriptionDiv.style.display = "flex";
@@ -209,16 +210,17 @@ fetch("/data.json")
             creationImgContainer.append(imgDivElement);
             // console.log(`i: ${i}, selectedArray : ${item}, currentIndex: ${currentSetIndex}, endIndex : ${endIndex}`);
 
-            btnAjoutPanier(infoDivNew, () => {
-                const patronInfo = {
-                    nom: item.nom,
-                    prix: item.prix,
-                    photo: item.photo,
-                    // Ajoutez d'autres informations nécessaires au panier
-                };
-                addToCart(patronInfo);
-                alert('Item added to cart!');
-            });
+            // btnAjoutPanier(infoDivNew, () => {
+            //     const patronInfo = {
+            //         nom: item.nom,
+            //         prix: item.prix,
+            //         photo: item.photo,
+            //         // Ajoutez d'autres informations nécessaires au panier
+            //     };
+            //     addToCart(patronInfo);
+            //     alert('Item added to cart!');
+            // });
+            btnAjoutPanier(infoDivNew, item);
 
             descriptionBtn.addEventListener("click", () => {
                 descriptionDiv.style.display = "flex";

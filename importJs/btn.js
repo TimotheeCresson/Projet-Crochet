@@ -18,20 +18,58 @@
 
 // Événement de clic pour le boutonAjoutPanier
 // Dans votre fichier btn.js
-export function btnAjoutPanier(infoDiv, items) {
+// export function btnAjoutPanier(infoDiv, items) {
+//     const newButton = document.createElement('button');
+//     newButton.textContent = "Ajouter au panier";
+//     newButton.classList.add("btnAjoutPanier");
+
+//     newButton.addEventListener('click', () => {
+//         // Récupérez les informations spécifiques de l'élément sur lequel le bouton a été cliqué
+//         const patronInfo = {
+//             nom: items.nom,
+//             prix: items.prix,
+//             photo: items.photo,
+//             // Ajoutez d'autres informations nécessaires au panier
+//         };
+
+//         // Utilisez fetch pour ajouter cet élément au panier côté serveur
+//         fetch('/php/panier/misAJourPanier/_ajout_panier.php', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(patronInfo),
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             // Gérer la réponse du serveur si nécessaire
+//             alert('Item added to cart!');
+//         })
+//         .catch(error => {
+//             console.error('Error adding item to cart:', error);
+//         });
+//     });
+
+//     infoDiv.appendChild(newButton);
+// }
+
+export function btnAjoutPanier(infoDiv, items, index) {
     const newButton = document.createElement('button');
     newButton.textContent = "Ajouter au panier";
     newButton.classList.add("btnAjoutPanier");
-
-    newButton.addEventListener('click', () => {
+    
+    newButton.addEventListener('click', (event) => {
         // Récupérez les informations spécifiques de l'élément sur lequel le bouton a été cliqué
+        event.preventDefault();
         const patronInfo = {
             nom: items.nom,
             prix: items.prix,
             photo: items.photo,
-            // Ajoutez d'autres informations nécessaires au panier
+            description: items.description, 
+            // index: index,  
+            
         };
-
+        console.log(patronInfo);
         // Utilisez fetch pour ajouter cet élément au panier côté serveur
         fetch('/php/panier/misAJourPanier/_ajout_panier.php', {
             method: 'POST',
@@ -52,6 +90,8 @@ export function btnAjoutPanier(infoDiv, items) {
 
     infoDiv.appendChild(newButton);
 }
+
+
 
 // ... (Votre code existant)
 

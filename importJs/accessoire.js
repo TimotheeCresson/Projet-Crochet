@@ -1,5 +1,5 @@
 import { btnAjoutPanier } from './btn.js';
-import { addToCart } from '../shoppingCart/cart.js';
+// import { addToCart } from '../shoppingCart/cart.js';
 
 export function accessoire() {
     fetch("/data.json")
@@ -50,17 +50,17 @@ export function accessoire() {
                     accessoireImg.append(imgNewDiv);
 
                     // on importe le bouton ajout Panier
-                    btnAjoutPanier(infoDivNew, () => {
-                        const patronInfo = {
-                            nom: items.nom,
-                            prix: items.prix,
-                            photo: items.photo,
-                            // Ajoutez d'autres informations nécessaires au panier
-                        };
-                        addToCart(patronInfo);
-                        alert('Item added to cart!');
-                    });
-
+                    // btnAjoutPanier(infoDivNew, () => {
+                    //     const patronInfo = {
+                    //         nom: items.nom,
+                    //         prix: items.prix,
+                    //         photo: items.photo,
+                    //         // Ajoutez d'autres informations nécessaires au panier
+                    //     };
+                    //     addToCart(patronInfo);
+                    //     alert('Item added to cart!');
+                    // });
+                    btnAjoutPanier(infoDivNew, items);
                     descriptionBtnNew.addEventListener("click", () => {
                         descriptionDiv.style.display = "flex";
                     });
