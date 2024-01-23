@@ -99,3 +99,76 @@ h1 {
 .formEnregistrement label {
     margin-bottom: 30px; /* Adjust the margin value as needed */
 }
+
+
+/*
+==================
+Parti gestion Panier
+==================
+*/
+#allContentPanier {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titlePanier {
+    text-align: center;
+}
+
+#votrePanier {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.colonneSupprimer, .colonneProduit, .colonnePrix, .colonneQuantité {
+    font-weight: bold;
+}
+.colonne {
+    text-align: center;
+}
+.colonneDuProduit {
+    text-align: center;
+}
+.boutonSupprimer button {
+    background-color: lightblue;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.boutonSupprimer button:hover {
+    background-color: rgb(0, 68, 90);
+}
+.imgPanier {
+    max-width: 50px;
+    max-height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btnBoutiqueFromPanier {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: lightblue;
+    color: white;
+    text-decoration: none;
+}
+
+.btnBoutiqueFromPanier:hover {
+    background-color: rgb(0, 68, 90)
+}
+.nom p {
+    text-transform: capitalize;
+}

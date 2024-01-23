@@ -20,11 +20,13 @@
 //         exit();
 //     }
 // }
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 function removeFromCart($itemIndex) {
     error_log("Removing item at index: " . $itemIndex);
     if (isset($_SESSION['cart'][$itemIndex])) {
         $item = $_SESSION['cart'][$itemIndex];
-
         // Supprimer l'élément du panier
         unset($_SESSION['cart'][$itemIndex]);
 
@@ -51,5 +53,6 @@ function removeFromCart($itemIndex) {
         exit();
     }
 }
+
 
 ?>

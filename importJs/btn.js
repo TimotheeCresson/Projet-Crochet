@@ -66,9 +66,10 @@ export function btnAjoutPanier(infoDiv, items, index) {
             prix: items.prix,
             photo: items.photo,
             description: items.description, 
-            // index: index,  
+            itemIndex: index, 
             
         };
+        console.log(items.data);
         console.log(patronInfo);
         // Utilisez fetch pour ajouter cet élément au panier côté serveur
         fetch('/php/panier/misAJourPanier/_ajout_panier.php', {

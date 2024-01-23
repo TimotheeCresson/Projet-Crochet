@@ -36,8 +36,8 @@ function addToCart($item) {
 
     // Ajout de notre article dans le panier 
     $_SESSION['cart'][] = $item;
-    
 }
+
 // Vérifier si les données POST sont présentes
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données JSON envoyées depuis le client
@@ -54,9 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     addToCart($patronInfo);
 
-    // Envoi d'une réponse JSON appropriée
+    // Envoi d'une réponse JSON appropriée avec l'index
+    $index = count($_SESSION['cart']) - 1; // Index du dernier élément ajouté
     header('Content-Type: application/json');
-    echo json_encode(['success' => true, 'message' => 'Item added to cart']);
+    echo json_encode(['success' => true, 'message' => 'Item added to cart', 'index' => $index]);
     exit();
 } else {
     // Envoi d'une réponse JSON appropriée en cas de méthode non autorisée
@@ -64,5 +65,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit();
 }
-?>
+
 
