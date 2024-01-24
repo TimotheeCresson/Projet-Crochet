@@ -62,14 +62,13 @@ export function btnAjoutPanier(infoDiv, items, index) {
         // Récupérez les informations spécifiques de l'élément sur lequel le bouton a été cliqué
         event.preventDefault();
         const patronInfo = {
+            id: items.id,
             nom: items.nom,
             prix: items.prix,
             photo: items.photo,
             description: items.description, 
-            itemIndex: index, 
-            
+            quantite: 0
         };
-        console.log(items.data);
         console.log(patronInfo);
         // Utilisez fetch pour ajouter cet élément au panier côté serveur
         fetch('/php/panier/misAJourPanier/_ajout_panier.php', {

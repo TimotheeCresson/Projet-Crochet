@@ -1,5 +1,4 @@
 <?php 
-
 require __DIR__ ."/../../services/_userShouldBeLogged.php";
 require __DIR__ ."/../model/userModel.php";
 

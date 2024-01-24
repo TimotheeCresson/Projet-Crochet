@@ -92,22 +92,23 @@ function gestionConnexionEnregistrement(): void {
 
     require __DIR__ . "/../view/page_compte.php";
 }
-
 gestionConnexionEnregistrement();
 
+// function deconnexionUser() {
+//     userShouldBeLogged(true, "/");
 
-function deconnexionUser() {
-    userShouldBeLogged(true, "/");
+//     unset($_SESSION);
+//     session_destroy();
 
-    unset($_SESSION);
-    session_destroy();
-
-    setcookie("PHPSESSID", "", time()-3600);
+//     setcookie("PHPSESSID", "", time()-3600);
     
-    header("Location: /");
-    exit;
-}
-deconnexionUser();
+//     header("Location: /");
+//     exit;
+//     echo "Déconnexion réussie !";
+// }
+
+
+
 // function enregistrement(): void {
 //     userShouldBeLogged(false, "../controller/authController.php");
 
@@ -180,4 +181,4 @@ deconnexionUser();
 //     }
 //     require __DIR__ . "/../view/page_compte.php";
 // }
-// enregistrement();?>
+// enregistrement();

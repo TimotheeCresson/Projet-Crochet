@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require(__DIR__ . "/../template/_header.php");
 require __DIR__ . "/misAJourPanier/_suppression_panier.php";
+require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +43,14 @@ require __DIR__ . "/misAJourPanier/_suppression_panier.php";
                             foreach ($_SESSION['cart'] as $index => $item):
                             ?>
                             <tr>
+                                <!--<td class="boutonSupprimer colonneDuProduit">
+                                    <button type="submit" name="removeItem" value="<?php echo $item['id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>-->
+                                <input type="hidden" name="removeItem" value="<?php echo $item['id']; ?>">
                                 <td class="boutonSupprimer colonneDuProduit">
-                                    <button type="submit" name="removeItem" value="<?php echo $index; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="submit" name="removeItemBtn"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>
+
                                 <td class="produit colonneDuProduit">
                                     <?php if (isset($item['photo'])): ?>
                                         <img src="/img/<?php echo $item['photo']; ?>" alt="<?php echo $item['nom']; ?>" class="imgPanier">
@@ -60,18 +66,28 @@ require __DIR__ . "/misAJourPanier/_suppression_panier.php";
                                         <p><?php echo $item['prix']; ?> €</p>
                                     <?php endif; ?>
                                 </td>
-                                <td class="quantité"></td>
+                                <td class="quantité colonneDuProduit">
+                                    <?php if (isset($item['quantite'])): ?>
+                                        <p><?php echo $item['quantite']; ?></p>
+                                    <?php endif; ?>
+                                </td>   
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
                 </form>
-                <?php else: ?>
-                    <!-- Display a message when the cart is empty -->
-                    <p>Votre panier est vide.</p>
-                <?php endif; ?>
+                <div class="afterTablePanier">
+                    <div class="totalPanier">
+                        <p>Le total de votre panier est de <?php echo $totalPanier ?> € </p>
+                    </div>   
+                        <a class="btnBoutiqueFromPanier" href="../panier/validationCommande.php">Valider la commande</a>
+                    <?php else: ?>
+                        <!-- Display a message when the cart is empty -->
+                        <p>Votre panier est vide.</p>
+                    <?php endif; ?>
+                    <a class="btnBoutiqueFromPanier" href="/index.php">Retourner à la boutique</a>
+                </div>
             </div>
-            <a class="btnBoutiqueFromPanier" href="/index.php">Retourner à la boutique</a>
         </div>
     </body>
 </html>

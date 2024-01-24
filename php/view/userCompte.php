@@ -1,5 +1,14 @@
 <?php 
 require(__DIR__."/../template/_header.php");
+require __DIR__ ."/../../services/_userShouldBeLogged.php";
+
+userShouldBeLogged(true, "/");
+
+
+if (isset($_POST["deconnexion"])) {
+    require __DIR__."/../controller/deconnexionCompte.php"; 
+    deconnexionUser();
+}
 ?>
 
 <div class="containerUserCompte">
@@ -7,7 +16,7 @@ require(__DIR__."/../template/_header.php");
         <p>Bonjour, bienvenue, votre inscription s'est déroulée avec succès</p>
     </div>
     
-    <form method="post" action="/php/controller/authController.php">
+    <form method="post" action="/php/view/page_compte.php">
         <input type="submit" name="deconnexion" value="Déconnexion">
     </form>
     
