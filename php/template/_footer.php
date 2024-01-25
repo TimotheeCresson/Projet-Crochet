@@ -1,5 +1,5 @@
 <footer>
-    <span class="titleFooterSection1">Boutique</span>
+    <span class="titleFooterSection1">En vente</span>
     <div class="menuFooter">
         <ul>
             <li><a href="#nouveautés">Nouveautés</a></li>
@@ -8,7 +8,7 @@
             <li><a href="#patrons">Patrons</a></li>
         </ul>
     </div>
-        <span class="titleFooterSection2">Infos</span>
+        <span class="titleFooterSection2">Renseignements</span>
     <div class="menuFooter">
         <ul>
             <li><a href="/php/view/phpLink/paiementEtEnvoi.php" id="paiementEtEnvoi">Paiement et envoi</a></li>
@@ -19,7 +19,7 @@
 
     <div class="footerBottom">
         <div class="copyright">
-            <p>Copyright © 2023 | Creation by Timothée</p>
+            <p>Copyright © 2024 | Creation by Timothée</p>
         </div>
         <div class="barreMid"></div>
         <div class="mediaContainer">

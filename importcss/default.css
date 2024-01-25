@@ -113,6 +113,9 @@ Parti gestion Panier
 
 .titlePanier {
     text-align: center;
+    color: rgb(67, 167, 201);
+    font-family: var(--police-Karla-Bold);
+    font-size: 2em;
 }
 
 #votrePanier {
@@ -165,7 +168,7 @@ th, td {
     text-align: center;
     padding: 10px;
     background-color: lightblue;
-    color: white;
+    color: black;
     text-decoration: none;
     width: 200px;
     margin: 30px auto;
