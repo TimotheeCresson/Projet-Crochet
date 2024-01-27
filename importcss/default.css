@@ -262,3 +262,21 @@ Parti valdiation panier
 .validationCommande button:hover {
     background-color: rgb(0, 68, 90);
 }
+
+/* 
+=====================
+Page administration
+=====================
+*/
+.toggle-button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333; /* Couleur du texte */
+    background-color: #f0f0f0; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    margin-right: 10px; /* Marge à droite pour espacement */
+}

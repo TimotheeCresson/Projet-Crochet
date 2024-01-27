@@ -1,5 +1,9 @@
 <?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require(__DIR__."/../template/_header.php");
+
 ?>
 <div class="container">
     <div class="formulaire">
@@ -50,6 +54,15 @@ require(__DIR__."/../template/_header.php");
                     <br>
                     <input type="submit" value="Enregistrement" name="inscription">
                 </form>
+
+                <?php
+                if (isset($_SESSION['inscription_message']) && !empty($_SESSION['inscription_message'])) {
+                    echo '<p>' . $_SESSION['inscription_message'] . '</p>';
+                    
+                    // Supprimer la variable de session
+                    unset($_SESSION['inscription_message']);
+                }      
+                ?>
             </div>
         </div>
     </div>

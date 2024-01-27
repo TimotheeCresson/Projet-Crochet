@@ -1,8 +1,8 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// if (session_status() === PHP_SESSION_NONE) {
+//     session_start();
+// }
 require(__DIR__ . "/../template/_header.php");
 require __DIR__ . "/misAJourPanier/_suppression_panier.php";
 require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";

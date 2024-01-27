@@ -17,7 +17,10 @@
             <ul>
                 <input type="checkbox" id="check">
                     <li><a href="/index.php" id="home">Boutique</a></li>
-                    <li><a href="/php/controller/authController.php" id="compteLink">Compte</a></li>
+                    <li>
+    <a href="<?php echo isset($_SESSION['logged']) && $_SESSION['logged'] === true ? '/php/admin/' . ($_SESSION['role'] === 'Admin' ? 'adminCompte.php' : '/php/view/' . ($_SESSION['role'] === 'user' ? 'userCompte.php' : '')) : '/php/controller/authController.php';?>" id="compteLink">Compte</a>
+</li>
+
                     <li><a href="/php/panier/panier.php" id="panier">Panier</a></li>
                     <li><a href="/php/view/phpLink/about.php" id="about">À Propos</a></li>
                     <li><a href="#contact">Contact</a></li>

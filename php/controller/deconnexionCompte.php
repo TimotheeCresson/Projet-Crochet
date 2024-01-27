@@ -1,6 +1,7 @@
 <?php
-// deconnexionCompte.php
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require __DIR__ . "/../../services/_userShouldBeLogged.php";
 
 function deconnexionUser() {

@@ -80,11 +80,16 @@
     right: 5px;
     font-size: 1.2em;
 }
-.fa-solid {
+.fa-house {
     color: white;
 }
 
 /* Icone poubelle dans rubrique panier afin de ne pas être changé en blanc à cuase de fa-solid */
 .fa-trash-can {
+    color: black;
+}
+
+/* Icone liste dans section admin */
+.fa-list {
     color: black;
 }

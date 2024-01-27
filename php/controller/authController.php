@@ -2,7 +2,7 @@
 require __DIR__ . "/../../services/_userShouldBeLogged.php";
 require __DIR__ . "/../model/userModel.php";
 
-function gestionConnexionEnregistrement(): void {
+function gestionConnexionEnregistrement() {
     userShouldBeLogged(false, "/");
 
     $email = $password = $identifiantInscription = $emailInscription = $passwordInscription = "";
@@ -15,14 +15,13 @@ function gestionConnexionEnregistrement(): void {
             if (empty($_POST['email']) || empty($_POST['password'])) {
                 $error["email"] = "Veuillez entrer un email";
                 $error["password"] = "Veuillez entrer un password";
-
             } else {
                     $email = trim($_POST['email']);
                     $password = trim($_POST['password']);
 
                     // Effectuer le traitement de connexion
                     $userEmail = getUserByEmail($email);
-
+                    var_dump($userEmail);
                     if ($userEmail) {
                         if(password_verify($password, $userEmail["password"])) {
                         $_SESSION["logged"] = true;
@@ -33,14 +32,12 @@ function gestionConnexionEnregistrement(): void {
 
                                         
                         if ($_SESSION["role"] === "Admin") {
-                            header("Location: /php/view/adminCompte.php");  // Redirect to the admin page
+                            header("Location: /php/admin/adminCompte.php");  // Redirection page admin
                             exit;
-                        } else {
-                            header("Location: /php/view/userCompte.php");   // Redirect to the regular user page
+                        } else if($_SESSION["role"] === "user" ){
+                            header("Location: /php/view/userCompte.php");   // Redirection page user
                             exit;
                         }
-                        // header("Location: /php/view/userCompte.php");
-                        // exit;
                     } else {
                         $error["connecter"] = "Email ou Mot de Passe Incorrecte (password)";
                     }
@@ -82,103 +79,15 @@ function gestionConnexionEnregistrement(): void {
                         $passwordInscription = password_hash($passwordInscription, PASSWORD_DEFAULT);
                         addingUser($identifiantInscription, $emailInscription, $passwordInscription);
 
-                        header("Location: /php/view/userCompte.php");
+                        $_SESSION['inscription_message'] = 'Inscription réussie !';
+
+                        header("Location: /php/view/page_compte.php");
                         exit;
                     }
                 }
             }
         }
     }
-
     require __DIR__ . "/../view/page_compte.php";
 }
 gestionConnexionEnregistrement();
-
-// function deconnexionUser() {
-//     userShouldBeLogged(true, "/");
-
-//     unset($_SESSION);
-//     session_destroy();
-
-//     setcookie("PHPSESSID", "", time()-3600);
-    
-//     header("Location: /");
-//     exit;
-//     echo "Déconnexion réussie !";
-// }
-
-
-
-// function enregistrement(): void {
-//     userShouldBeLogged(false, "../controller/authController.php");
-
-//     $identifiant = $emailInscription = $passwordInscription = "";
-//     $error = [];
-//     $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
-
-//     if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['inscription'])) {
-//         // traitement identifiant
-//         if (empty($_POST['identifiant'])) {
-//             $error["identifiant"] = `Veuillez saisir un nom d'identification`;
-//         }
-//         else {
-//             $identifiant = clean_data($_POST["identifiant"]);
-//             if (!preg_match("/^[a-zA-Z' -]{2,25}$/", $identifiant)) {
-//                 $error["identifiant"] = "Veuillez saisir un nom d'identifiant valide";
-//             }
-//         }
-//         // Traitement email
-//         if (empty($_POST["emailInscription"])) {
-//             $error["emailInscription"] = "Veuillez saisir un email";
-//         }
-//         else {
-//             $emailInscription = clean_data($_POST["emailInscription"]);
-
-//             if(!filter_var($emailInscription, FILTER_VALIDATE_EMAIL))
-//             {
-//                 $error["email"] = "Veuillez saisir un email valide";
-//             }
-//             $resultat = getUserByEmail($emailInscription);
-//             if($resultat)
-//             {
-//                 $error["emailInscription"] = "Cet email est déjà enregistré";
-//             }
-//         }
-//         // traitement du mot de passe
-//         if(empty($_POST["passwordInscription"]))
-//         {
-//             $error["passwordInscription"] = "Veuillez saisir un mot de passe";
-//         }
-//         else
-//         {
-//             $passwordInscription = trim($_POST["passwordInscription"]);
-//             if(!preg_match($regexPass, $passwordInscription))
-//             {
-//                 $error["password"] = "Veuillez saisir un mot de passe valide";
-//             }
-//             else
-//             {
-//                 $passwordInscription = password_hash($passwordInscription, PASSWORD_DEFAULT);
-//             }
-//         }
-//         // Traitement vérification du mot de passe
-//         if(empty($_POST["passwordInscriptionBis"]))
-//         {
-//             $error["passwordInscriptionBis"] = "Veuillez saisir à nouveau votre mot de passe";
-//         }
-//         else if($_POST["passwordInscriptionBis"] !== $_POST["passwordInscription"])
-//         {
-//             $error["passwordInscriptionBis"] = "Veuillez saisir le même mot de passe";
-//         }
-//         // Envoi des données :
-//         if(empty($error))
-//         {
-//             addingUser($identifiant, $emailInscription, $passwordInscription);
-            
-//             header("Location: /");
-//             exit;
-//         }
-//     }
-//     require __DIR__ . "/../view/page_compte.php";
-// }
-// enregistrement();
