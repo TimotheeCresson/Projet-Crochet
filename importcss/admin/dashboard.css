@@ -1,77 +1,93 @@
-
 .sidebarAdmin {
-    position: absolute;
+    position: fixed; 
     top: 0;
     left: 0;
-    bottom: 0;
-    width: 150px;
-    padding: 0 1.5rem;
+    height: 100%; 
+    width: 250px;
+    padding: 1.5rem;
     color: #fff;
     overflow: hidden;
     background: lightblue;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
-
-
-.toggle-button {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: #333; /* Couleur du texte */
-    background-color: #f0f0f0; /* Couleur de fond */
-    border: 1px solid #ccc; /* Bordure */
-    border-radius: 5px; /* Coins arrondis */
-    margin-right: 10px; /* Marge à droite pour espacement */
+.adminTitle h1{
+    font-family: var(--police-Karla-Bold);
 }
-
-
 .containerUserCompte {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f4f4f4;
+    margin-left: 250px; 
+    padding: 1.5rem; 
 }
 
-.userAdmission h1 {
-    color: #333;
-}
 
 .toggle-button {
-    display: inline-block;
-    margin: 10px 0;
+    display: block;
+    margin-bottom: 10px;
     padding: 10px;
-    background-color: #3498db;
-    color: #fff;
     text-decoration: none;
+    color: #fff;
+    background: #2979FF; 
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#userList, #articleList {
-    display: none;
-    margin-top: 20px;
-}
 
-#userList p, #articleList p {
+#userList {
+    background: #fff; 
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+#userList p {
     margin: 0;
     padding: 5px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc; 
 }
 
-#userList a, #articleList a {
-    margin-left: 10px;
+#userList a {
+    color: red; 
+    text-decoration: none;
 }
 
-form {
-    margin-top: 20px;
+#userList a:hover {
+    text-decoration: underline;
 }
 
-.erreur {
-    color: red;
-    font-weight: bold;
+#articleList {
+    background: #f5f5f5; 
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+#articleList h2 {
+    color: #000000; 
 }
 
-.decoAdmin {
+#articleList p {
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#articleList a {
+    color: red; 
+    text-decoration: none;
+}
+
+#articleList a:hover {
+    text-decoration: underline;
+}
+
+
+
+a {
+    color: #000; 
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.deconnectAdmin {
     margin: 10px 0;
     padding: 10px;
     background-color: #3498db;
