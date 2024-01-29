@@ -24,10 +24,10 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
             </h2>
             <div id="votrePanier">
                 <?php
-                // Check if the 'cart' key is set in the session
-                if (isset($_SESSION['cart'])):
+                // Regarde si la clé "cart" est dans la session et non vide
+                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])):
                 ?>
-                <form action="" method="post">
+                <!-- <form action="" method="post"> -->
                     <table>
                         <thead>
                             <tr>
@@ -46,11 +46,14 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
                                 <!--<td class="boutonSupprimer colonneDuProduit">
                                     <button type="submit" name="removeItem" value="<?php echo $item['id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>-->
-                                <input type="hidden" name="removeItem" value="<?php echo $item['id']; ?>">
                                 <td class="boutonSupprimer colonneDuProduit">
-                                    <button type="submit" name="removeItemBtn"><i class="fa-solid fa-trash-can"></i></button>
+                                    <form action="misAJourPanier/_suppression_panier.php" method="post">
+                                        <input type="hidden" name="removeItem" value="<?php echo $item['id']; ?>">
+                                        <button type="submit" name="removeItemBtn">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </form>
                                 </td>
-
                                 <td class="produit colonneDuProduit">
                                     <?php if (isset($item['photo'])): ?>
                                         <img src="/img/<?php echo $item['photo']; ?>" alt="<?php echo $item['nom']; ?>" class="imgPanier">
@@ -75,7 +78,7 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-                </form>
+                <!-- </form> -->
                 <div class="afterTablePanier">
                     <div class="totalPanier">
                         <p>Le total de votre panier est de <?php echo $totalPanier ?> € </p>

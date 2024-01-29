@@ -1,0 +1,81 @@
+
+.sidebarAdmin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    padding: 0 1.5rem;
+    color: #fff;
+    overflow: hidden;
+    background: lightblue;
+}
+
+
+.toggle-button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333; /* Couleur du texte */
+    background-color: #f0f0f0; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    margin-right: 10px; /* Marge à droite pour espacement */
+}
+
+
+.containerUserCompte {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.userAdmission h1 {
+    color: #333;
+}
+
+.toggle-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#userList, #articleList {
+    display: none;
+    margin-top: 20px;
+}
+
+#userList p, #articleList p {
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+#userList a, #articleList a {
+    margin-left: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.erreur {
+    color: red;
+    font-weight: bold;
+}
+
+.decoAdmin {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}

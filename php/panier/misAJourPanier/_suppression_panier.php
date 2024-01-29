@@ -1,61 +1,33 @@
-<?php 
-// session_start();
-
-// function removeFromCart($itemIndex) {
-//     if (isset($_SESSION['cart'][$itemIndex])) {
-//         // Supprimer l'élément du panier
-//         unset($_SESSION['cart'][$itemIndex]);
-
-//         // Réindexer le tableau après la suppression
-//         $_SESSION['cart'] = array_values($_SESSION['cart']);
-
-//         // Envoi d'une réponse JSON appropriée
-//         header('Content-Type: application/json');
-//         echo json_encode(['success' => true, 'message' => 'Item removed from cart']);
-//         exit();
-//     } else {
-//         // Envoi d'une réponse JSON appropriée en cas d'erreur
-//         header('Content-Type: application/json');
-//         echo json_encode(['success' => false, 'message' => 'Item not found in cart']);
-//         exit();
-//     }
-// }
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-function removeFromCart($itemId) {
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $itemIndex => $item) {
-            if (isset($item['id']) && $item['id'] === $itemId) {
-                var_dump($item['id']);
-                // Supprimer l'image associée
-                if (isset($item['photo'])) {
-                    $imagePath = __DIR__ . "/./img/" . $item['photo'];
-                    if (file_exists($imagePath)) {
-                        unlink($imagePath); // Supprimer le fichier image
-                    }
-                }
 
-                // Supprimer l'élément du panier
-                unset($_SESSION['cart'][$itemIndex]);
+function removeFromCart() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeItem'])) {
+        $itemId = $_POST['removeItem'];
 
-                // Réindexer le tableau après la suppression
-                $_SESSION['cart'] = array_values($_SESSION['cart']);
+        if (isset($_SESSION['cart'])) {
+            $productIndex = array_search($itemId, array_column($_SESSION['cart'], 'id'));
 
-                // Envoi d'une réponse JSON appropriée
-                header('Content-Type: application/json');
-                echo json_encode(['success' => true, 'message' => 'Item removed from cart']);
+            if ($productIndex !== false) {
+                // Si le produit est trouvé dans le panier, le supprimer
+                unset($_SESSION['cart'][$productIndex]);
+                $_SESSION['cart'] = array_values($_SESSION['cart']); // Réorganiser les indices après la suppression
+
+                // Envoi d'une réponse JSON appropriée avec succès
+                header("Location: /php/panier/panier.php");
+                // echo json_encode(['success' => true, 'message' => 'Item removed from cart']);
+                exit();
+            } else {
+                // Si le produit n'est pas trouvé dans le panier
+                header("Location: /php/panier/panier.php");
+                echo "L'article n'a pas été trouvé dans le panier";
                 exit();
             }
         }
     }
-
-    // Envoi d'une réponse JSON appropriée en cas d'erreur
-    header('Content-Type: application/json');
-    echo json_encode(['success' => false, 'message' => 'Item not found in cart']);
-    exit();
 }
-
-
-
+// Appeler la fonction de suppression
+removeFromCart();
 ?>
