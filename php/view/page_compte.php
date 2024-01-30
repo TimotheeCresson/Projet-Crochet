@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require(__DIR__."/../template/_header.php");
 
 ?>
-<div class="container">
+<div class="containerCompte">
     <div class="formulaire">
         <div class="formConnection">
             <div class="formColumn">
@@ -21,12 +21,12 @@ require(__DIR__."/../template/_header.php");
                     <br>
                     <span class="error"><?php echo $error["password"]??""; ?></span>
                     <br>
-                    <input type="submit" name="connecter" value="Se connecter">
+                    <input type="submit" name="connecter" value="Se connecter" class="connectBtn">
                     <br>
                     <span class="error"><?php echo $error["connecter"]??""; ?></span>
                 </form>
             </div>
-            <a href="/php/view/motDepasseOublie.php">Mot de passe oublié</a>
+            <a href="/mdpOublie" class="mdpOublie">Mot de passe oublié ?</a>
         </div>
     </div>
 
@@ -52,7 +52,7 @@ require(__DIR__."/../template/_header.php");
                     <input type="password" name="passwordInscriptionBis" required>
                     <span class="erreur"><?php echo $error["passwordInscriptionBis"]??""; ?></span> 
                     <br>
-                    <input type="submit" value="Enregistrement" name="inscription">
+                    <input type="submit" value="Enregistrement" name="inscription"  class="connectBtn">
                 </form>
 
                 <?php

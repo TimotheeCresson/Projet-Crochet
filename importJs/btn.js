@@ -16,21 +16,27 @@ export function btnAjoutPanier(infoDiv, items, index) {
         };
         console.log(patronInfo);
         // Utilisez fetch pour ajouter cet élément au panier côté serveur
-        fetch('/php/panier/misAJourPanier/_ajout_panier.php', {
+        fetch('/ajoutPanier', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(patronInfo),
         })
-        .then(response => response.json())
-        .then(data => {
-            // Gérer la réponse du serveur si nécessaire
-            alert('Item added to cart!');
-        })
-        .catch(error => {
-            console.error('Error adding item to cart:', error);
-        });
+        .then(response =>
+            {
+                console.log(response);
+                if(!response.ok) return;
+                response.text().then(test=>console.log(test))
+            } )
+        // .then(data => {
+        //     console.log(data);
+        //     // Gérer la réponse du serveur si nécessaire
+        //     alert('Item added to cart!');
+        // })
+        // .catch(error => {
+        //     console.error('Error adding item to cart:', error);
+        // });
     });
 
     infoDiv.appendChild(newButton);

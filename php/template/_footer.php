@@ -11,9 +11,9 @@
         <span class="titleFooterSection2">Renseignements</span>
     <div class="menuFooter">
         <ul>
-            <li><a href="/php/view/phpLink/paiementEtEnvoi.php" id="paiementEtEnvoi">Paiement et envoi</a></li>
-            <li><a href="/php/view/phpLink/mentionsLegales.php" id="mentionsLegales">Mentions légales</a></li>
-            <li><a href="/php/view/phpLink/conditiongenerale.php" id="ConditionVentes">Conditions générales de ventes</a></li>
+            <li><a href="/paiementEtEnvoi" id="paiementEtEnvoi">Paiement et envoi</a></li>
+            <li><a href="/mentionsLegales" id="mentionsLegales">Mentions légales</a></li>
+            <li><a href="/conditionGenerale" id="ConditionVentes">Conditions générales de ventes</a></li>
         </ul>
     </div>
 

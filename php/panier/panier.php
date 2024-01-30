@@ -15,7 +15,7 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site vitrine Crochet</title>
     <!-- <script src="/importJs/panier.js" type="module" defer></script> -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 </head>
     <body>
         <div id="allContentPanier">
@@ -47,7 +47,7 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
                                     <button type="submit" name="removeItem" value="<?php echo $item['id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>-->
                                 <td class="boutonSupprimer colonneDuProduit">
-                                    <form action="misAJourPanier/_suppression_panier.php" method="post">
+                                    <form action="/supprimerPanier" method="post">
                                         <input type="hidden" name="removeItem" value="<?php echo $item['id']; ?>">
                                         <button type="submit" name="removeItemBtn">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -83,12 +83,12 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
                     <div class="totalPanier">
                         <p>Le total de votre panier est de <?php echo $totalPanier ?> € </p>
                     </div>   
-                        <a class="btnBoutiqueFromPanier" href="../panier/validationCommande.php">Valider la commande</a>
+                        <a class="btnBoutiqueFromPanier" href="/validationPanier">Valider la commande</a>
                     <?php else: ?>
                         <!-- Display a message when the cart is empty -->
                         <p>Votre panier est vide.</p>
                     <?php endif; ?>
-                    <a class="btnBoutiqueFromPanier" href="/index.php">Retourner à la boutique</a>
+                    <a class="btnBoutiqueFromPanier" href="/">Retourner à la boutique</a>
                 </div>
             </div>
         </div>

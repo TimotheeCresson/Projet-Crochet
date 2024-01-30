@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 function addToCart($item) {
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
@@ -30,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données JSON envoyées depuis le client
     $json_data = file_get_contents("php://input");
     $patronInfo = json_decode($json_data, true);
-
+    
     // Vérifier si la conversion JSON s'est bien passée
     if ($patronInfo === null) {
         // Envoi d'une réponse JSON appropriée en cas d'erreur
@@ -40,6 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     addToCart($patronInfo);
+    header('Content-Type: application/json');
+    echo json_encode(['success' => true, 'message' => 'Ajouté au Panier']);
+    exit();
 } else {
     // Envoi d'une réponse JSON appropriée en cas de méthode non autorisée
     header('Content-Type: application/json');

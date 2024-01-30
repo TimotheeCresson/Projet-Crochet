@@ -32,10 +32,10 @@ function gestionConnexionEnregistrement() {
 
                                         
                         if ($_SESSION["role"] === "Admin") {
-                            header("Location: /php/admin/adminCompte.php");  // Redirection page admin
+                            header("Location: /compteAdmin");  // Redirection page admin
                             exit;
                         } else if($_SESSION["role"] === "user" ){
-                            header("Location: /php/view/userCompte.php");   // Redirection page user
+                            header("Location: /compteUser");   // Redirection page user
                             exit;
                         }
                     } else {
@@ -81,7 +81,7 @@ function gestionConnexionEnregistrement() {
 
                         $_SESSION['inscription_message'] = 'Inscription réussie !';
 
-                        header("Location: /php/view/page_compte.php");
+                        header("Location: /compte");
                         exit;
                     }
                 }
@@ -90,4 +90,3 @@ function gestionConnexionEnregistrement() {
     }
     require __DIR__ . "/../view/page_compte.php";
 }
-gestionConnexionEnregistrement();

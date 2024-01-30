@@ -4,21 +4,21 @@
             "id": 1,
             "nom":"citrouille",
             "prix": 25,
-            "photo": "citrouille.JPG",
+            "photo": "citrouille.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
             "id": 2,
             "nom":"licorne",
             "prix": 20,
-            "photo": "licorne.JPG",
+            "photo": "licorne.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
             "id": 3,
             "nom":"elephant",
             "prix": 40,
-            "photo": "elephant.JPG",
+            "photo": "elephant.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         }
     ],
@@ -34,14 +34,14 @@
             "id": 3,
             "nom":"elephant",
             "prix": 40,
-            "photo": "elephant.JPG",
+            "photo": "elephant.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
             "id": 2,
             "nom":"licorne",
             "prix": 20,
-            "photo": "licorne.JPG",
+            "photo": "licorne.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
@@ -106,14 +106,14 @@
             "id": 15,
             "nom":"Tricolore",
             "prix": 30,
-            "photo":"trapilho.JPG",
+            "photo":"trapilho.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         },
         {
             "id": 16,
             "nom":"Jaune",
             "prix": 30,
-            "photo":"trapilho2.JPG",
+            "photo":"trapilho2.jpg",
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio."
         }
     ],
@@ -123,42 +123,42 @@
             "nom":"sac à main",
             "prix": 8,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 18,
             "nom":"bonnet",
             "prix": 10,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 19,
             "nom":"écharpe",
             "prix": 10,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 20,
             "nom":"short",
             "prix": 12,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 21,
             "nom":"gant",
             "prix": 12,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 22,
             "nom":"t-shirt",
             "prix": 12,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         }
     ],
     "patrons": [
@@ -181,7 +181,7 @@
             "nom":"patron oeuf",
             "prix": 3,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "licorne.JPG"
+            "photo": "licorne.jpg"
         },
         {
             "id": 26,

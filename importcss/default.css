@@ -62,9 +62,13 @@ h1 {
 }
 
 
-/* Parti compte */
+/*
+================== 
+Parti compte
+==================
+ */
 
-.container {
+ .containerCompte {
     display: flex;
     justify-content: space-around;
     padding: 20px;
@@ -72,8 +76,8 @@ h1 {
 }
 
 .formulaire {
-    width: calc(50% - 10px); 
-    margin: 5px; 
+    width: 50%; /* Ajusté à 50% pour rendre les deux cadres égaux */
+    margin: 5px;
 }
 
 .formColumn form {
@@ -91,13 +95,46 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Pour que les cadres occupent toute la largeur du formulaire */
+}
+
+.formConnection label,
+.formEnregistrement label {
+    margin-bottom: 10px; /* Ajusté pour réduire l'espace entre le label et l'input */
 }
 
 .formConnection input,
-.formConnection label,
-.formEnregistrement input,
-.formEnregistrement label {
-    margin-bottom: 30px; /* Adjust the margin value as needed */
+.formEnregistrement input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.formConnection input[type="submit"],
+.formEnregistrement input[type="submit"] {
+    width: auto; /* Ajusté pour rendre le bouton de la largeur nécessaire */
+}
+.connectBtn {
+    background-color: rgb(87, 177, 207);
+}
+.mdpOublie {
+    position: relative;
+    color: black; 
+}
+.mdpOublie:hover {
+    text-decoration: transparent;
+}
+.mdpOublie::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    background-color: rgb(87, 177, 207); 
 }
 
 
@@ -189,7 +226,7 @@ th, td {
 
 /*
 =======================
-Parti valdiation panier
+Parti validation panier
 =======================
 */
 /* Ajoutez ce style dans votre fichier CSS ou directement dans votre balise style dans l'en-tête HTML */
@@ -263,8 +300,4 @@ Parti valdiation panier
     background-color: rgb(0, 68, 90);
 }
 
-/* 
-=====================
-Page administration
-=====================
-*/
+

@@ -58,6 +58,6 @@
             <div class="patronImgContainer"></div>
         </div> 
         <p>Les patrons des accessoires sont également disponibles à la vente</p>
-        <a class="btnPatrons" id="btnPagePatrons" href="/php/view/phpLink/patrons.php">Accéder aux différents patrons</a>
+        <a class="btnPatrons" id="btnPagePatrons" href="/patronPage">Accéder aux différents patrons</a>
     </section>
 </div>

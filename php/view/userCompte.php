@@ -16,7 +16,7 @@ if (isset($_POST["deconnexion"])) {
         <p>Bonjour, bienvenue, votre inscription s'est déroulée avec succès</p>
     </div>
     
-    <form method="post" action="/php/view/page_compte.php">
+    <form method="post" action="/compte">
         <input type="submit" name="deconnexion" value="Déconnexion">
     </form>
     

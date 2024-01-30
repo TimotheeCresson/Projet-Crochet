@@ -12,7 +12,7 @@ if (isset($_POST['deleteArticles']) && isset($_POST['selectedArticles'])) {
     }
 
     // Rediriger vers la page d'administration après la suppression
-    header("Location: adminCompte.php");
+    header("Location: /adminCompte.php");
     exit;
 }
 ?>

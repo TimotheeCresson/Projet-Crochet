@@ -16,12 +16,12 @@ function removeFromCart() {
                 $_SESSION['cart'] = array_values($_SESSION['cart']); // Réorganiser les indices après la suppression
 
                 // Envoi d'une réponse JSON appropriée avec succès
-                header("Location: /php/panier/panier.php");
+                header("Location: /panier");
                 // echo json_encode(['success' => true, 'message' => 'Item removed from cart']);
                 exit();
             } else {
                 // Si le produit n'est pas trouvé dans le panier
-                header("Location: /php/panier/panier.php");
+                header("Location: /panier");
                 echo "L'article n'a pas été trouvé dans le panier";
                 exit();
             }
