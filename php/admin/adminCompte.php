@@ -91,7 +91,11 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
         ?>
     </div>
 
+<<<<<<< HEAD
         <form method="post" action="compte">
+=======
+        <form method="post" action="/php/view/page_compte.php">
+>>>>>>> 7cca76e8f4bada2c9db1cabd1ae1ef3ec123b3b7
             <input type="submit" name="deconnexion" class="deconnectAdmin" value="Déconnexion">
         </form>
         <span class="erreur"><?php echo $error["deconnexionUser"] ?? ""; ?></span>
@@ -110,3 +114,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
         articleList.style.display = (articleList.style.display === 'none' || articleList.style.display === '') ? 'block' : 'none';
     }
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cca76e8f4bada2c9db1cabd1ae1ef3ec123b3b7
