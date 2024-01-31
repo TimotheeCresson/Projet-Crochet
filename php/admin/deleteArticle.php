@@ -1,6 +1,7 @@
 <?php
-function deleteArticleFromJson($category, $articleId) {
+function deleteArticleFromJson($articleId, $category) {
     $jsonFile = __DIR__ . '/../../data.json';
+    $jsonContent = null;
 
     // Vérifier si le fichier existe
     if (file_exists($jsonFile)) {
@@ -26,18 +27,22 @@ function deleteArticleFromJson($category, $articleId) {
                 // Écrire le nouveau contenu dans le fichier JSON
                 file_put_contents($jsonFile, $newJsonContent);
 
-                // Redirection vers adminCompte.php
-                header("Location: adminCompte.php");
-                exit;
+                // Retourner le nouveau contenu JSON
+                return $newJsonContent;
             } else {
                 echo "L'ID de l'article n'existe pas.";
+                return;  // Ajout de cette ligne pour éviter l'exécution du code suivant en cas d'erreur
             }
         } else {
             echo "La catégorie n'existe pas.";
+            return;  // Ajout de cette ligne pour éviter l'exécution du code suivant en cas d'erreur
         }
     } else {
         echo "Le fichier data.json n'existe pas.";
+        return;  // Ajout de cette ligne pour éviter l'exécution du code suivant en cas d'erreur
     }
-}
 
+    // En cas d'erreur, retourner le contenu JSON actuel
+    return $jsonContent;
+}
 ?>

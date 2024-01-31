@@ -29,14 +29,14 @@ export function btnAjoutPanier(infoDiv, items, index) {
                 if(!response.ok) return;
                 response.text().then(test=>console.log(test))
             } )
-        // .then(data => {
-        //     console.log(data);
-        //     // Gérer la réponse du serveur si nécessaire
-        //     alert('Item added to cart!');
-        // })
-        // .catch(error => {
-        //     console.error('Error adding item to cart:', error);
-        // });
+        .then(data => {
+            console.log(data);
+            // Gérer la réponse du serveur si nécessaire
+            alert('Item added to cart!');
+        })
+        .catch(error => {
+            console.error('Error adding item to cart:', error);
+        });
     });
 
     infoDiv.appendChild(newButton);

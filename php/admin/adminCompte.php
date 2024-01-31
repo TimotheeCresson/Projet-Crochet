@@ -2,8 +2,9 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require __DIR__ . "/../../services/_userShouldBeLogged.php";
+// require __DIR__ . "/../../services/_userShouldBeLogged.php";
 require __DIR__ . "/../model/userModel.php";
+require __DIR__ . "/../controller/deconnexionCompte.php";
 require __DIR__ . "/getArticleJson.php";
 require __DIR__ . "/deleteArticle.php";
 
@@ -14,20 +15,14 @@ if (!$_SESSION["role"] === "Admin") {
 // Vérifier si l'utilisateur est connecté en tant qu'administrateur
 userShouldBeLogged(true, "/");
 
-// Traitement de la déconnexion
-if (isset($_POST["deconnexion"])) {
-    require __DIR__ . "/../controller/deconnexionCompte.php"; 
-    deconnexionUser();
-}
-
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
     echo 'Vous êtes connecté.';
 } else {
     echo 'Vous n\'êtes pas connecté.';
     // Éventuellement, rediriger l'utilisateur vers la page de connexion
-    // header("Location: /chemin/vers/page_connexion.php");
-    // exit;
+    header("Location: /compte");
+    exit;
 }
 ?>
 
@@ -60,14 +55,31 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             <i class="fa-solid fa-list"></i>
             <span>Articles</span>
         </a>
-</div>
+    </div>
+    <div class="headerUserInfo" onclick="toggleLogoutContainer()">
+        <p><span style="margin-right: 10px;"><i class="fa-solid fa-user"></i></span><?= $_SESSION['email'] ?></p>
+        <div id="logoutContainer" class="logoutContainer" style="display: none;">
+            <form method="post" action="/deconnexion">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <input type="submit" name="deconnexion" class="deconnectAdmin" value="Déconnexion">
+            </form>
+            <span class="erreur"><?php echo $error["deconnexionUser"] ?? ""; ?></span>
+        </div>
+    </div>
+    
 
         <div id="userList" style="display: none;">
             <?php 
             $recupUsers = getEveryUsers();
             foreach ($recupUsers as $user):
+                if ($user['role'] === 'user'):
             ?>
-                <p><?= $user['username'] ?><?= $user['username'] ?> - <?= $user['email'] ?> - <?= $user['role'] ?> <a href="supprimerUser.php?id_User=<?= $user['id_User']; ?>" style="color: red; text-decoration: none;">Supprimer l'utilisateur</a></p>
+            <!-- Suppression d'un utilisateeur géré en js plus bas  -->
+            <p>
+                <?= $user['username'] ?> - <?= $user['email'] ?> - <?= $user['role'] ?>
+                <a href="#" style="color: red; text-decoration: none;" onclick="confirmDelete(<?= $user['id_User']; ?>)">Supprimer l'utilisateur</a>
+            </p>
+            <?php endif; ?>
             <?php endforeach; ?>
         </div>
     
@@ -81,7 +93,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             <?php  $articles = getArticlesFromJson()[$category];
             foreach ($articles as $article):
             ?>
-            <p><?= $article['nom'] ?> - <?= $article['prix'] ?> € - <a href="suppressionArticle.php?id=<?= $article['id'] ?>&category=<?= $category ?>" style="color: red; text-decoration: none;">Supprimer l'article</a></p>
+            <p><?= $article['nom'] ?> - <?= $article['prix'] ?> € - <a href="/suppressionArticle?id=<?= $article['id'] ?>&category=<?= $category ?>" style="color: red; text-decoration: none;">Supprimer l'article</a></p>
 
             <?php 
                 endforeach;
@@ -89,18 +101,9 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
         <?php 
             endforeach;
         ?>
+        </div>
     </div>
 
-<<<<<<< HEAD
-        <form method="post" action="compte">
-=======
-        <form method="post" action="/php/view/page_compte.php">
->>>>>>> 7cca76e8f4bada2c9db1cabd1ae1ef3ec123b3b7
-            <input type="submit" name="deconnexion" class="deconnectAdmin" value="Déconnexion">
-        </form>
-        <span class="erreur"><?php echo $error["deconnexionUser"] ?? ""; ?></span>
-    </div>
-</div>
 
 <script>
     // JavaScript function to toggle visibility of user list
@@ -113,8 +116,21 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
         var articleList = document.getElementById("articleList");
         articleList.style.display = (articleList.style.display === 'none' || articleList.style.display === '') ? 'block' : 'none';
     }
-</script>
-<<<<<<< HEAD
-=======
 
->>>>>>> 7cca76e8f4bada2c9db1cabd1ae1ef3ec123b3b7
+    function toggleLogoutContainer() {
+    var logoutContainer = document.getElementById("logoutContainer");
+    logoutContainer.style.display = (logoutContainer.style.display === 'none' || logoutContainer.style.display === '') ? 'block' : 'none';
+}
+
+    function confirmDelete(userId) {
+    // Utilisation de la boîte de dialogue de confirmation
+    var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur?");
+
+    // Si l'utilisateur clique sur "OK", redirigez vers la page de suppression
+    if (confirmation) {
+        window.location.href = "/supprimerUser?id_User=" + userId;
+    } else {
+        // Sinon, ne faites rien
+    }
+}
+</script>

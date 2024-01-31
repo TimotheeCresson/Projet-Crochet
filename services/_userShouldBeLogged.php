@@ -10,7 +10,7 @@ if (session_status()===PHP_SESSION_NONE) {  // si session pas démarré, on la d
  * @param string $redirect chemin de redirection
  * @return void
  */
-function userShouldBeLogged(bool $logged = true, string $redirect = "/"): void { //void est utilisé pour indiquer qu'une fonction ne retourne aucune valeur. Cela signifie que la fonction exécute des actions ou des opérations, mais elle ne produit pas de résultat qui doit être utilisé ou manipulé par le code appelant.
+function userShouldBeLogged(bool $logged = true, string $redirect = "/compte"): void { //void est utilisé pour indiquer qu'une fonction ne retourne aucune valeur. Cela signifie que la fonction exécute des actions ou des opérations, mais elle ne produit pas de résultat qui doit être utilisé ou manipulé par le code appelant.
     if ($logged) {
         if(isset($_SESSION["expire"])) {
             // Si la session a expiré, on la supprime

@@ -19,8 +19,8 @@ if (isset($_GET["id_User"]) && !empty($_GET["id_User"])) {
         }
 
         // Redirection vers adminCompte.php
-        header("Location: adminCompte.php");
-        exit; // Arrête l'exécution du script ici
+        header("Location: /compteAdmin");
+        exit; 
     } else {
         echo "Aucun utilisateur n'a été trouvé avec cet identifiant.";
     }

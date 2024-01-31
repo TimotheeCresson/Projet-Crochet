@@ -1,18 +1,24 @@
 <?php
-if (isset($_POST['deleteArticles']) && isset($_POST['selectedArticles'])) {
-    foreach ($_POST['selectedArticles'] as $selectedArticle) {
-        // Divisez la valeur de chaque case à cocher pour obtenir l'id et la catégorie
-        list($articleId, $category) = explode('-', $selectedArticle);
+// Inclure le fichier contenant la fonction deleteArticleFromJson
+require_once 'deleteArticle.php';
 
-        // Inclure la fonction de suppression
-        require_once 'deleteArticle.php';
+// Récupérer l'ID de l'article et la catégorie 
+$articleIdToDelete = isset($_GET['id']) ? $_GET['id'] : null;
+$categoryToDelete = isset($_GET['category']) ? $_GET['category'] : null;
 
-        // Appeler la fonction de suppression
-        deleteArticleFromJson($category, $articleId);
-    }
+// Vérifier si les valeurs sont présentes
+if ($articleIdToDelete !== null && $categoryToDelete !== null) {
+    // Supprimer l'article et obtenir le nouveau contenu JSON
+    $newJsonContent = deleteArticleFromJson($articleIdToDelete, $categoryToDelete);
 
-    // Rediriger vers la page d'administration après la suppression
-    header("Location: /adminCompte.php");
-    exit;
+    // Écrire le nouveau contenu JSON dans le fichier
+    file_put_contents(__DIR__ . '/../../data.json', $newJsonContent);
+
+    // Afficher un message de succès ou effectuer d'autres actions si nécessaire
+    echo "L'article a été supprimé avec succès.";
+} else {
+    // Gérer l'absence d'ID de l'article ou de catégorie
+    echo "L'ID de l'article ou la catégorie n'est pas spécifié.";
 }
+
 ?>

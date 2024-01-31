@@ -43,9 +43,6 @@ require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
                             foreach ($_SESSION['cart'] as $index => $item):
                             ?>
                             <tr>
-                                <!--<td class="boutonSupprimer colonneDuProduit">
-                                    <button type="submit" name="removeItem" value="<?php echo $item['id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
-                                </td>-->
                                 <td class="boutonSupprimer colonneDuProduit">
                                     <form action="/supprimerPanier" method="post">
                                         <input type="hidden" name="removeItem" value="<?php echo $item['id']; ?>">

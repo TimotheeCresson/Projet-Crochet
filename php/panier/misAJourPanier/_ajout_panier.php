@@ -4,11 +4,12 @@ function addToCart($item) {
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
-
+    
     // Recherche de l'index du produit dans le panier
     $productIndex = array_search($item['id'], array_column($_SESSION['cart'], 'id'));
 
     if ($productIndex !== false) {
+        
         // Si le produit est déjà dans le panier, augmenter la quantité
         $_SESSION['cart'][$productIndex]['quantite']++;
     } else {
@@ -16,7 +17,6 @@ function addToCart($item) {
         $item['quantite'] = 1;
         $_SESSION['cart'][] = $item;
     }
-
     // Envoi d'une réponse JSON appropriée avec l'index
     $index = count($_SESSION['cart']) - 1; // Index du dernier élément ajouté
     header('Content-Type: application/json');
@@ -48,5 +48,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit();
 }
-
 

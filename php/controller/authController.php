@@ -21,12 +21,13 @@ function gestionConnexionEnregistrement() {
 
                     // Effectuer le traitement de connexion
                     $userEmail = getUserByEmail($email);
-                    var_dump($userEmail);
+
                     if ($userEmail) {
                         if(password_verify($password, $userEmail["password"])) {
                         $_SESSION["logged"] = true;
                         $_SESSION["username"] = $userEmail["username"];
                         $_SESSION["id_User"] = $userEmail["id_User"];
+                        $_SESSION["email"] = $userEmail["email"];
                         $_SESSION["role"] = $userEmail["role"];
                         $_SESSION["expire"] = time() + 3600;
 
