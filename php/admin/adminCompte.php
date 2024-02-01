@@ -34,7 +34,6 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
     <title>Site vitrine Crochet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/../../style.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
     <script src="/../../main.js" defer type="module"></script>
 </head>
 
@@ -77,7 +76,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             <!-- Suppression d'un utilisateeur géré en js plus bas  -->
             <p>
                 <?= $user['username'] ?> - <?= $user['email'] ?> - <?= $user['role'] ?>
-                <a href="#" style="color: red; text-decoration: none;" onclick="confirmDelete(<?= $user['id_User']; ?>)">Supprimer l'utilisateur</a>
+                <a href="#" style="color: red; text-decoration: none;" onclick="confirmDeleteUser(<?= $user['id_User']; ?>)">Supprimer l'utilisateur</a>
             </p>
             <?php endif; ?>
             <?php endforeach; ?>
@@ -93,7 +92,13 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             <?php  $articles = getArticlesFromJson()[$category];
             foreach ($articles as $article):
             ?>
-            <p><?= $article['nom'] ?> - <?= $article['prix'] ?> € - <a href="/suppressionArticle?id=<?= $article['id'] ?>&category=<?= $category ?>" style="color: red; text-decoration: none;">Supprimer l'article</a></p>
+            
+            <p>
+                <?= $article['nom'] ?> - <?= $article['prix'] ?> € - 
+                <a href="#" onclick="confirmDeleteArticle(<?= $article['id'] ?>, '<?= $category ?>');" style="color: red; text-decoration: none;">
+                    Supprimer l'article
+                </a>
+            </p>
 
             <?php 
                 endforeach;
@@ -122,7 +127,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
     logoutContainer.style.display = (logoutContainer.style.display === 'none' || logoutContainer.style.display === '') ? 'block' : 'none';
 }
 
-    function confirmDelete(userId) {
+    function confirmDeleteUser(userId) {
     // Utilisation de la boîte de dialogue de confirmation
     var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur?");
 
@@ -130,7 +135,22 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
     if (confirmation) {
         window.location.href = "/supprimerUser?id_User=" + userId;
     } else {
-        // Sinon, ne faites rien
+        // Sinon, je ne fais rien
     }
 }
+
+function confirmDeleteArticle(articleId, category) {
+    // Utilisation de la boîte de dialogue de confirmation
+    var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet article?");
+
+    // Si l'utilisateur clique sur "OK", redirigez vers la page de suppression
+    if (confirmation) {
+        var deleteUrl = "/suppressionArticle?id=" + articleId + "&category=" + category;
+        window.location.href = deleteUrl;
+    } else {
+        // Sinon, je ne fais rien
+    }
+}
+
+
 </script>

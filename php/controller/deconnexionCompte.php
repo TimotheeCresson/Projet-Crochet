@@ -7,23 +7,29 @@ require __DIR__ . "/../../services/_userShouldBeLogged.php";
 function deconnexionUser() {
     // Vérifiez si l'utilisateur est connecté avant de détruire la session
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-        // Récupère les variables de session liées à l'utilisateur
-        $username = $_SESSION['username'];
-        $role = $_SESSION['role'];
-        $idUser =  $_SESSION["id_User"];
-        $email     = $_SESSION["email"]; 
-        // Conserve les informations du panier
+
+        // Conserve les informations du panier, si la session est trempli, on la récupère sinon on met un tableau vide
         $panier = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
         // Détruit la session (sauf le panier)
         $_SESSION = [];
         session_destroy();
+        // Solution 2 :
+        // unset($_SESSION["logged"]);
+        // unset($_SESSION["username"]);
+        // unset($_SESSION["id_User"]);
+        // unset($_SESSION["email"]);
+        // unset($_SESSION["role"]);
+        // unset($_SESSION["expire"]);
 
-        // Restaure les informations du panier
-        $_SESSION['cart'] = $panier;
 
         // Supprime le cookie de session
-        setcookie("PHPSESSID", "", time() - 3600);
+        // setcookie("PHPSESSID", "", time() - 3600);
+
+
+        // Restaure les informations du panier
+        session_start();
+        $_SESSION['cart'] = $panier;
 
         // Vous pouvez ajouter d'autres actions de nettoyage si nécessaire
 

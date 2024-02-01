@@ -11,11 +11,11 @@ if ($articleIdToDelete !== null && $categoryToDelete !== null) {
     // Supprimer l'article et obtenir le nouveau contenu JSON
     $newJsonContent = deleteArticleFromJson($articleIdToDelete, $categoryToDelete);
 
-    // Écrire le nouveau contenu JSON dans le fichier
-    file_put_contents(__DIR__ . '/../../data.json', $newJsonContent);
-
     // Afficher un message de succès ou effectuer d'autres actions si nécessaire
     echo "L'article a été supprimé avec succès.";
+
+    header("Location: /compteAdmin");
+    exit;
 } else {
     // Gérer l'absence d'ID de l'article ou de catégorie
     echo "L'ID de l'article ou la catégorie n'est pas spécifié.";

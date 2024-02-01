@@ -1,4 +1,5 @@
 <?php
+
 require __DIR__ . "/../../services/_userShouldBeLogged.php";
 require __DIR__ . "/../model/userModel.php";
 
@@ -24,6 +25,7 @@ function gestionConnexionEnregistrement() {
 
                     if ($userEmail) {
                         if(password_verify($password, $userEmail["password"])) {
+
                         $_SESSION["logged"] = true;
                         $_SESSION["username"] = $userEmail["username"];
                         $_SESSION["id_User"] = $userEmail["id_User"];
@@ -31,7 +33,6 @@ function gestionConnexionEnregistrement() {
                         $_SESSION["role"] = $userEmail["role"];
                         $_SESSION["expire"] = time() + 3600;
 
-                                        
                         if ($_SESSION["role"] === "Admin") {
                             header("Location: /compteAdmin");  // Redirection page admin
                             exit;
