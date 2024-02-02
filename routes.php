@@ -15,12 +15,16 @@ get("/validationPanier", "./php/panier/validationCommande.php");
 get("/mdpOublie", "./php/view/motDepasseOublie.php");
 get("/supprimerUser", "./php/admin/supprimerUser.php");
 
+any("/editArticle","./php/admin/EditerArticle/editForm.php");
 
 any("/supprimerPanier", "./php/panier/misAJourPanier/_suppression_panier.php");
 any("/suppressionArticle","./php/admin/suppressionArticle.php");
 any("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
 any("/compteAdmin", "./php/admin/adminCompte.php");
 any("/compteUser", "./php/view/userCompte.php");
+
+
+
 
 // ----------------  crud ---------------------------
 // Liste utilisateur 

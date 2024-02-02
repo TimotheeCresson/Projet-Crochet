@@ -16,33 +16,7 @@
     overflow-x: hidden;
     scrollbar-color: lightblue gray;
     scrollbar-width: auto;
-
-    /* For (Chrome, Safari, ...) */
-    &::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: #eee;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: #333;
-    }
 }
-
-.imgAccessoireAnimate {
-    /* display: flex; */
-    animation: imageAnimate 10s infinite;
-    /* animation-play-state: running; */
-}
-.accessoireImg:hover .imgAccessoireAnimate {
-    animation-play-state: paused;
-}
-/* Pause the animation when hovering over .accessoireImg */
-/* .imgAccessoireAnimate:hover {
-    animation-play-state: paused;
-} */
 
 .textAccessoire p {
     text-align: center;
@@ -50,20 +24,4 @@
     padding-top: 20px;
 }
 
-@keyframes imageAnimate {
-    0% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-100px);
-    }
-    50% {
-        transform: translateY(-200px);
-    }
-    75% {
-        transform: translateY(-250px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+

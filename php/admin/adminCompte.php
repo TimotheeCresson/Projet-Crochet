@@ -75,14 +75,15 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             ?>
             <!-- Suppression d'un utilisateeur géré en js plus bas  -->
             <p>
-                <?= $user['username'] ?> - <?= $user['email'] ?> - <?= $user['role'] ?>
-                <a href="#" style="color: red; text-decoration: none;" onclick="confirmDeleteUser(<?= $user['id_User']; ?>)">Supprimer l'utilisateur</a>
+                <?= $user['username'] ?> - <?= $user['email'] ?> - <?= $user['role'] ?> - <a href="#" style="color: red; text-decoration: none;" onclick="confirmDeleteUser(<?= $user['id_User']; ?>)">Supprimer l'utilisateur</a>
             </p>
             <?php endif; ?>
             <?php endforeach; ?>
         </div>
     
         <div id="articleList" style="display: none;">
+        
+        <a href="/editArticle">Éditer</a>
         <?php 
         $categories = ['nouveautés', 'animaux', 'trapilho', 'accessoire', 'patrons'];
         foreach ($categories as $category):
@@ -94,10 +95,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
             ?>
             
             <p>
-                <?= $article['nom'] ?> - <?= $article['prix'] ?> € - 
-                <a href="#" onclick="confirmDeleteArticle(<?= $article['id'] ?>, '<?= $category ?>');" style="color: red; text-decoration: none;">
-                    Supprimer l'article
-                </a>
+                <?= $article['nom'] ?> - <?= $article['prix'] ?> € <a href="#" onclick="confirmDeleteArticle(<?= $article['id'] ?>, '<?= $category ?>');" style="color: red; text-decoration: none;"> Supprimer l'article</a>
             </p>
 
             <?php 

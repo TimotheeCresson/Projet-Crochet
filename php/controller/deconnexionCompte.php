@@ -8,7 +8,7 @@ function deconnexionUser() {
     // Vérifiez si l'utilisateur est connecté avant de détruire la session
     if (isset($_SESSION['logged']) && $_SESSION['logged']) {
 
-        // Conserve les informations du panier, si la session est trempli, on la récupère sinon on met un tableau vide
+        // Conserve les informations du panier, si la session est remplie, on la récupère sinon on met un tableau vide
         $panier = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
         // Détruit la session (sauf le panier)
@@ -21,11 +21,6 @@ function deconnexionUser() {
         // unset($_SESSION["email"]);
         // unset($_SESSION["role"]);
         // unset($_SESSION["expire"]);
-
-
-        // Supprime le cookie de session
-        // setcookie("PHPSESSID", "", time() - 3600);
-
 
         // Restaure les informations du panier
         session_start();
