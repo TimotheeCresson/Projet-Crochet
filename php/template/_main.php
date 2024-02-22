@@ -2,7 +2,7 @@
 
     <section class="accueil">
             <h1>Bienvenue Sur Mon Site</h1>
-            <p>Je m'appelle Justine, je suis passionnée depuis quelques années par le crochet, voci mes créations en espérant qu'elles vous plairont</p>
+            <p>Je m'appelle Justine, je suis passionnée depuis quelques années par le crochet, voici mes créations en espérant qu'elles vous plairont</p>
             <div class="carrousel"></div>
     </section>
 

@@ -30,7 +30,9 @@
     font-family: "Ballet";
     src: url("../font/Ballet-Regular-VariableFont_opsz.ttf");
 }
-
+html {
+    overflow-x: hidden;
+}
 body {
     /* display: grid;
     grid-template-rows: 100dvh 50vh 100vh 100vh 40vh 100vh;

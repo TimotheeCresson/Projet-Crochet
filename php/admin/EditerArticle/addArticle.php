@@ -7,6 +7,11 @@ function addArticleToJson($category, $id, $nom, $prix, $description) {
     // Décoder le contenu JSON en tableau PHP
     $articles = json_decode($jsonContent, true);
 
+    // Vérifier si le décodage a réussi
+    if ($articles === null) {
+        throw new RuntimeException("Erreur lors du décodage du fichier JSON.");
+    }
+
     // Vérifier si la catégorie existe, sinon la créer
     if (!isset($articles[$category])) {
         $articles[$category] = [];
@@ -30,7 +35,7 @@ function addArticleToJson($category, $id, $nom, $prix, $description) {
         // Retourner le nouveau contenu JSON
         return $newJsonContent;
     } else {
-        throw new RuntimeException("Erreur lors de l'écriture dans le fichier JSON.");
+        throw new RuntimeException("Erreur lors de l'écriture dans le fichier JSON. Vérifiez les permissions d'écriture.");
     }
 }
 ?>

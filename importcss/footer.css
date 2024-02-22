@@ -102,6 +102,7 @@ footer {
     width: 2000%;
     right: 100%; /* Part vers la gauche */
 }
+/* footerBottom */
 .footerBottom {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
