@@ -211,5 +211,21 @@
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
             "photo": "poussin.jpg"
         }
+    ],
+    "dsq": [
+        {
+            "id": 1,
+            "nom": "lol",
+            "prix": "10",
+            "description": "fdsf"
+        }
+    ],
+    "dsqfsd": [
+        {
+            "id": 1,
+            "nom": "sqd",
+            "prix": "10",
+            "description": "dsq"
+        }
     ]
 }

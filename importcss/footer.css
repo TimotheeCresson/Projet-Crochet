@@ -161,6 +161,9 @@ footer {
 }
 
 
+
+
+
 /* Conditions générales de ventes */
 
 .containerCondition {
@@ -187,3 +190,27 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Mentions légales */
+.containerMentions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto 100px;
+}
+.containerMentions h2 {
+    font-size: 1.5em;
+    font-family: var(--police-Karla-Bold);
+    margin: 40px 0 20px 0;
+}
+.containerMentions h4 {
+    font-size: 1em;
+    font-family: var(--police-Karla-Regular);
+    color: rgb(94, 91, 91);
+    margin: 20px 0 10px 0;
+    letter-spacing: -0.2px;
+}
+.containerMentions p {
+    font-family: var(--police-Karla-Regular);
+    margin-bottom: 20px;
+}
