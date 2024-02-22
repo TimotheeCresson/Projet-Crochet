@@ -1,7 +1,9 @@
 <?php
 require __DIR__ ."/../template/_header.php";
 require __DIR__ . "/misAJourPanier/_calculTotalPrice.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
