@@ -24,26 +24,29 @@ function gestionConnexionEnregistrement() {
                     $userEmail = getUserByEmail($email);
 
                     if ($userEmail) {
-                        if(password_verify($password, $userEmail["password"])) {
-
-                        $_SESSION["logged"] = true;
-                        $_SESSION["username"] = $userEmail["username"];
-                        $_SESSION["id_User"] = $userEmail["id_User"];
-                        $_SESSION["email"] = $userEmail["email"];
-                        $_SESSION["role"] = $userEmail["role"];
-                        $_SESSION["expire"] = time() + 3600;
-
-                        if ($_SESSION["role"] === "Admin") {
-                            header("Location: /compteAdmin");  // Redirection page admin
-                            exit;
-                        } else if($_SESSION["role"] === "user" ){
-                            header("Location: /compteUser");   // Redirection page user
-                            exit;
+                        if (password_verify($password, $userEmail["password"])) {
+                            $_SESSION["logged"] = true;
+                            $_SESSION["username"] = $userEmail["username"];
+                            $_SESSION["id_User"] = $userEmail["id_User"];
+                            $_SESSION["email"] = $userEmail["email"];
+                            
+                            // Utilisez la nouvelle fonction pour obtenir le rôle de l'utilisateur
+                            $_SESSION["role"] = getUserRole($userEmail["id_User"]);
+                    
+                            $_SESSION["expire"] = time() + 3600;
+                    
+                            // Redirection basée sur le rôle
+                            if ($_SESSION["role"] === "Admin") {
+                                header("Location: /compteAdmin");
+                                exit;
+                            } else if ($_SESSION["role"] === "user") {
+                                header("Location: /compteUser");
+                                exit;
+                            }
+                        } else {
+                            $error["connecter"] = "Email ou Mot de Passe Incorrecte (password)";
                         }
-                    } else {
-                        $error["connecter"] = "Email ou Mot de Passe Incorrecte (password)";
                     }
-                }
             }
         } elseif (isset($_POST['inscription'])) {
             // Traitement pour l'inscription
@@ -79,7 +82,9 @@ function gestionConnexionEnregistrement() {
 
                     if (empty($error)) {
                         $passwordInscription = password_hash($passwordInscription, PASSWORD_DEFAULT);
-                        addingUser($identifiantInscription, $emailInscription, $passwordInscription);
+                       // On met le rôle d'un nouvel utilisateur par défaut à user
+                        $idRole = getRoleIdByName('user');
+                        addingUser($identifiantInscription, $emailInscription, $passwordInscription, $idRole);
 
                         $_SESSION['inscription_message'] = 'Inscription réussie !';
 

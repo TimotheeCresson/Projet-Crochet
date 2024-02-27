@@ -88,6 +88,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] === true) {
         $categories = ['nouveautés', 'animaux', 'trapilho', 'accessoire', 'patrons'];
         foreach ($categories as $category):
         ?>
+        <!-- ucfirst (mettre en majuscule la première lettre du mot)  -->
             <h2><?= ucfirst($category) ?></h2>
 
             <?php  $articles = getArticlesFromJson()[$category];

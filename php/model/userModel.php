@@ -11,7 +11,7 @@ function getEveryUsers():array {
     // On se connecte à notre base de donnée
     $pdo = connexionPDO();
     // On envoi notre requête SQL
-    $sql = $pdo->query("SELECT id_User, username, email, role FROM users");
+    $sql = $pdo->query("SELECT u.id_User, u.username, u.email, r.NomRole as role FROM users u JOIN role r ON u.idRole = r.idRole");
     // on récupère les infos (ici on utilisera donc fetchAll)
     return $sql->fetchAll();
 }
@@ -53,7 +53,7 @@ function getUserByUsername(string $username):array|bool {
  */
 function getUserByEmail(string $email): array|bool {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("SELECT id_User, username, email, password, role FROM users WHERE email = :email");
+    $sql = $pdo->prepare("SELECT id_User, username, email, password, idRole FROM users WHERE email = :email");
     $sql->execute(["email" => $email]);
     return $sql->fetch();
 }
@@ -66,18 +66,18 @@ function getUserByEmail(string $email): array|bool {
  * @param string $password
  * @return void
  */
-function addingUser(string $username, string $email, string $password): void {
+function addingUser(string $username, string $email, string $password, int $idRole): void {
     $pdo = connexionPDO();
-    $sql = $pdo->prepare("INSERT INTO users(username, email, password) VALUES(:username, :email, :password)");
+    $sql = $pdo->prepare("INSERT INTO users(username, email, password, idRole) VALUES(:username, :email, :password, :idRole)");
 
     // Utilisation de execute avec un tableau associatif
     $sql->execute([
         ":username" => $username,
         ":email" => $email,
-        ":password" => $password
+        ":password" => $password,
+        ":idRole" => $idRole
     ]);
 }
-
 /**
  * On supprime un utilisateur par son id
  *
@@ -96,18 +96,34 @@ function updateUserByIsId (string $id, string $username, string $email, string $
     $sql->execute([(int)$id, $username, $email, $password]);
 }
 
-function addRoleColumnIfNotExists(): void {
+// function addRoleColumnIfNotExists(): void {
+//     $pdo = connexionPDO();
+
+//     // Check if the column already exists
+//     $sqlCheck = $pdo->query("SHOW COLUMNS FROM users LIKE 'role'");
+//     $columnExists = $sqlCheck->rowCount() > 0;
+
+//     if (!$columnExists) {
+//         // If the column doesn't exist, add it
+//         $sql = $pdo->query("ALTER TABLE users ADD COLUMN role VARCHAR(255) DEFAULT 'user'");
+//         $sql->execute();
+//     }
+// }
+
+function getUserRole(int $id_roleUser): string|bool {
     $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT role.NomRole FROM role INNER JOIN users ON role.idRole = users.idRole WHERE users.id_User = ?");
+    $sql->execute([$id_roleUser]);
+    $result = $sql->fetchColumn();
+    return $result !== false ? $result : false;
+}
 
-    // Check if the column already exists
-    $sqlCheck = $pdo->query("SHOW COLUMNS FROM users LIKE 'role'");
-    $columnExists = $sqlCheck->rowCount() > 0;
-
-    if (!$columnExists) {
-        // If the column doesn't exist, add it
-        $sql = $pdo->query("ALTER TABLE users ADD COLUMN role VARCHAR(255) DEFAULT 'user'");
-        $sql->execute();
-    }
+function getRoleIdByName(string $id_Role): int|bool {
+    $pdo = connexionPDO();
+    $sql = $pdo->prepare("SELECT idRole FROM role WHERE NomRole = ?");
+    $sql->execute([$id_Role]);
+    $result = $sql->fetchColumn();
+    return $result ? (int)$result : false;
 }
 
 
