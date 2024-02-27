@@ -35,28 +35,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'user', -- Nouveau champ 'role' avec une valeur par défaut 'user'
+  `idRole` int(11) NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`idUser`),
-  UNIQUE KEY `email` (`email`)
+  UNIQUE KEY `email` (`email`),
+  FOREIGN KEY (`idRole`) REFERENCES `Role`(`idRole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
+-- Création de la table des rôles
 CREATE TABLE IF NOT EXISTS `Role` (
   `idRole` int(11) NOT NULL AUTO_INCREMENT,
   `NomRole` varchar(20) NOT NULL,
   PRIMARY KEY (`idRole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
-ALTER TABLE `users`
-ADD COLUMN `idRole` int(11) NOT NULL,
-ADD FOREIGN KEY (`idRole`) REFERENCES `Role`(`idRole`);
