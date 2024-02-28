@@ -97,3 +97,6 @@ function gestionConnexionEnregistrement() {
     }
     require __DIR__ . "/../view/page_compte.php";
 }
+
+
+
