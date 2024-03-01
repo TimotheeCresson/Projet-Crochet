@@ -1,9 +1,7 @@
 <?php 
-
 function connexionPDO(): \PDO {
     // Je récupère les infos du fichier de configuration
     $config = require __DIR__ . "/../config/_compteConfig.php";
-
     /* 
         bdd = base de donnée
         PDO = PHP Data Objects

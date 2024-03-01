@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require(__DIR__."/../template/_header.php");
-
 ?>
 <div class="containerCompte">
     <div class="formulaire">
@@ -12,16 +11,16 @@ require(__DIR__."/../template/_header.php");
             <h2>Se connecter</h2>
                 <form method="post" action="">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" id="email" required>
                     <br>
                     <span class="error"><?php echo $error["email"]??""; ?></span>
                     <br>
                     <label for="password">Mot de passe :</label>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" id="password" required>
                     <br>
                     <span class="error"><?php echo $error["password"]??""; ?></span>
                     <br>
-                    <input type="submit" name="connecter" value="Se connecter" class="connectBtn">
+                    <input type="submit" name="connecter" id="connecter" value="Se connecter" class="connectBtn">
                     <br>
                     <span class="error"><?php echo $error["connecter"]??""; ?></span>
                 </form>
@@ -37,22 +36,22 @@ require(__DIR__."/../template/_header.php");
             <div class="formColumn">
                 <form method="post" action="">
                     <label for="identifiant">Identifiant :</label>
-                    <input type="text" name="identifiant" required>
+                    <input type="text" name="identifiant" id="identifiant" required>
                     <span class="erreur"><?php echo $error["identifiant"]??""; ?></span>
                     <br>
                     <label for="email">Email :</label>
-                    <input type="text" name="emailInscription" required>
+                    <input type="text" name="emailInscription" id="emailInscription" required>
                     <span class="erreur"><?php echo $error["emailInscription"]??""; ?></span> 
                     <br>
                     <label for="password">Mot de passe:</label>
-                    <input type="password" name="passwordInscription" required>
+                    <input type="password" name="passwordInscription" id="passwordInscription" required>
                     <span class="erreur"><?php echo $error["passwordInscription"]??""; ?></span> 
                     <br>
                     <label for="password">Confirmer votre mot de passe:</label>
-                    <input type="password" name="passwordInscriptionBis" required>
+                    <input type="password" name="passwordInscriptionBis" id="passwordInscriptionBis" required>
                     <span class="erreur"><?php echo $error["passwordInscriptionBis"]??""; ?></span> 
                     <br>
-                    <input type="submit" value="Enregistrement" name="inscription"  class="connectBtn">
+                    <input type="submit" value="Enregistrement" name="inscription" id="inscription"  class="connectBtn">
                 </form>
 
                 <?php
