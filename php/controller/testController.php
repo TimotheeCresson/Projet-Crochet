@@ -12,16 +12,6 @@ function gestionConnexionEnregistrement() {
     $error = [];
     $regexPass = "/^(?=.*[!?@#$%^&*+-])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$/";
 
-     // Vérifier si l'utilisateur a atteint 3 tentatives infructueuses
-     $maxLoginAttempts = 3;
-     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= $maxLoginAttempts) {
-         $captchaInput = strtoupper(trim($_POST['captcha']));
-         if ($captchaInput !== $_SESSION["captchaStr"]) {
-             $error["captcha"] = "Code captcha incorrect";
-            //  $showCaptcha = true; // Définir une variable pour indiquer que le captcha doit être affiché
-             return;
-         }
-     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['connecter'])) {
             // Traitement pour la connexion
@@ -31,17 +21,6 @@ function gestionConnexionEnregistrement() {
             } else {
                     $email = trim($_POST['email']);
                     $password = trim($_POST['password']);
-
-
-                    if (isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= $maxLoginAttempts) {
-                        $captchaInput = strtoupper(trim($_POST['captcha']));
-                        if ($captchaInput !== $_SESSION["captchaStr"]) {
-                            $error["captcha"] = "Code captcha incorrect";
-                            return; // Terminer l'exécution si le captcha est incorrect
-                        }
-                    }
-
-
 
                     // Effectuer le traitement de connexion
                     $userEmail = getUserByEmail($email);
@@ -68,8 +47,6 @@ function gestionConnexionEnregistrement() {
                             }
                         } else {
                             $error["connecter"] = "Email ou Mot de Passe Incorrecte (password)";
-                             // Incrémentez le compteur d'erreurs après un échec de connexion
-                         $_SESSION['login_attempts'] = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] + 1 : 1;
                         }
                     }
             }

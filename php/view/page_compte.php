@@ -1,7 +1,5 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+if (session_status() === PHP_SESSION_NONE) {session_start();}
 require(__DIR__."/../template/_header.php");
 ?>
 <div class="containerCompte">
@@ -19,6 +17,18 @@ require(__DIR__."/../template/_header.php");
                     <input type="password" name="password" id="password" required>
                     <br>
                     <span class="error"><?php echo $error["password"]??""; ?></span>
+                    <br>
+                    <?php
+                    // Afficher le captcha si le nombre d'erreurs atteint 3
+                    $maxLoginAttempts = 3;
+                    if (isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= $maxLoginAttempts) {
+                        echo '<label for="captcha">Veuillez recopier le texte ci-dessus :</label><br>';
+                        echo '<img src="/captcha" alt="captcha"><br>';
+                        echo '<input type="text" name="captcha" id="captcha" pattern="^[A-Z0-9]{6}" required>';
+                        echo '<br>';
+                        echo '<span class="error">' . ($error["captcha"] ?? "") . '</span>';
+                    }
+                    ?>
                     <br>
                     <input type="submit" name="connecter" id="connecter" value="Se connecter" class="connectBtn">
                     <br>

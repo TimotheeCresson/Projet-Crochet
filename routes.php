@@ -22,6 +22,7 @@ any("/suppressionArticle","./php/admin/suppressionArticle.php");
 any("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
 any("/compteAdmin", "./php/admin/adminCompte.php");
 any("/compteUser", "./php/view/userCompte.php");
+any("/captcha", "./services/_captcha.php");
 
 
 

@@ -10,7 +10,7 @@ userShouldBeLogged(true, "/");
 
 <div class="containerUserCompte">
     <div class="userAdmission">
-        <p>Bonjour, bienvenue, votre inscription s'est déroulée avec succès</p>
+        <p>Bonjour, bienvenue, vous voici connecté</p>
     </div>
     
     <form method="post" action="/deconnexion">
