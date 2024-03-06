@@ -14,18 +14,20 @@ get("/patronPage", "./php/view/phpLink/patrons.php");
 get("/validationPanier", "./php/panier/validationCommande.php");
 get("/mdpOublie", "./php/view/motDepasseOublie.php");
 get("/supprimerUser", "./php/admin/supprimerUser.php");
-
-any("/editArticle","./php/admin/EditerArticle/ajoutForm.php");
-
-any("/supprimerPanier", "./php/panier/misAJourPanier/_suppression_panier.php");
-any("/suppressionArticle","./php/admin/suppressionArticle.php");
-any("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
-any("/compteAdmin", "./php/admin/adminCompte.php");
-any("/compteUser", "./php/view/userCompte.php");
-any("/captcha", "./services/_captcha.php");
+get("/suppressionArticle","./php/admin/suppressionArticle.php");
+get("/compteAdmin", "./php/admin/adminCompte.php");
+get("/compteUser", "./php/view/userCompte.php");
 
 
+// any("/editArticle","./php/admin/EditerArticle/ajoutForm.php");
+post("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
+post("/supprimerPanier", "./php/panier/misAJourPanier/_suppression_panier.php");
 
+
+any("/captcha", function() {
+    require "./services/_captcha.php";
+    generateAndDisplayCaptcha();
+});
 
 // ----------------  crud ---------------------------
 // Liste utilisateur 
@@ -40,4 +42,3 @@ any("/deconnexion", function() {
 // ------------ Erreur 404 ------------------
 any("/404", "./404.php");
 
-?>

@@ -12,6 +12,7 @@ function getEveryUsers():array {
     $pdo = connexionPDO();
     // On envoi notre requête SQL
     $sql = $pdo->query("SELECT u.id_User, u.username, u.email, r.NomRole as role FROM users u JOIN role r ON u.idRole = r.idRole");
+    $sql->execute();
     // on récupère les infos (ici on utilisera donc fetchAll)
     return $sql->fetchAll();
 }

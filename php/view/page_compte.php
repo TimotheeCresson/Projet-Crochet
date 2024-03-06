@@ -1,6 +1,22 @@
 <?php 
 if (session_status() === PHP_SESSION_NONE) {session_start();}
 require(__DIR__."/../template/_header.php");
+if (!function_exists('set_CSRF')) {
+    // Déclarer la fonction seulement si elle n'existe pas déjà
+    function set_CSRF() {
+        include_once(__DIR__ . "/../../services/_csrf.php");
+    }
+}
+
+?>
+<?php
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check the captcha
+    if (isset($_POST["captcha"], $_SESSION["captchaStr"]) && $_POST["captcha"] !== $_SESSION["captchaStr"]) {
+        $error["captcha"] = "CAPTCHA Incorrecte !";
+    }
+}
 ?>
 <div class="containerCompte">
     <div class="formulaire">
@@ -18,6 +34,7 @@ require(__DIR__."/../template/_header.php");
                     <br>
                     <span class="error"><?php echo $error["password"]??""; ?></span>
                     <br>
+                    <?php set_CSRF(); ?>
                     <?php
                     // Afficher le captcha si le nombre d'erreurs atteint 3
                     $maxLoginAttempts = 3;
@@ -29,6 +46,7 @@ require(__DIR__."/../template/_header.php");
                         echo '<span class="error">' . ($error["captcha"] ?? "") . '</span>';
                     }
                     ?>
+                    
                     <br>
                     <input type="submit" name="connecter" id="connecter" value="Se connecter" class="connectBtn">
                     <br>
@@ -38,7 +56,6 @@ require(__DIR__."/../template/_header.php");
             <a href="/mdpOublie" class="mdpOublie">Mot de passe oublié ?</a>
         </div>
     </div>
-
     <div class="formulaire">
         <div class="formEnregistrement">
             <h2>Vous n'avez pas encore de compte?</h2>
@@ -61,6 +78,7 @@ require(__DIR__."/../template/_header.php");
                     <input type="password" name="passwordInscriptionBis" id="passwordInscriptionBis" required>
                     <span class="erreur"><?php echo $error["passwordInscriptionBis"]??""; ?></span> 
                     <br>
+                    <?php set_CSRF(); ?>
                     <input type="submit" value="Enregistrement" name="inscription" id="inscription"  class="connectBtn">
                 </form>
 
@@ -76,7 +94,6 @@ require(__DIR__."/../template/_header.php");
         </div>
     </div>
 </div>
-
 <?php 
 require(__DIR__."/../template/_footer.php");
 ?>

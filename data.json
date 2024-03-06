@@ -189,13 +189,6 @@
             "prix": 3,
             "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
             "photo": "poussin.jpg"
-        },
-        {
-            "id": 28,
-            "nom": "crocodile",
-            "prix": 3,
-            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure blanditiis culpa expedita iste similique ipsam obcaecati a, veniam optio! Laborum officiis quasi iure recusandae enim facere quo, non ab odio.",
-            "photo": "poussin.jpg"
         }
     ],
     "dsq": [

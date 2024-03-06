@@ -43,5 +43,12 @@ function is_CSRF_valid():bool {
     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed");
     return false;
 }
+function debug_csrf_value() {
+    if (isset($_SESSION['csrf'])) {
+        error_log('CSRF Value: ' . $_SESSION['csrf']);
+        // Ou utilisez un autre moyen pour afficher côté serveur, comme l'affichage dans la console de débogage
+        // echo 'CSRF Value: ' . $_SESSION['csrf'];
+    }
+}
 
 ?>
