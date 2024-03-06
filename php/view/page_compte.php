@@ -7,10 +7,6 @@ if (!function_exists('set_CSRF')) {
         include_once(__DIR__ . "/../../services/_csrf.php");
     }
 }
-
-?>
-<?php
-// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check the captcha
     if (isset($_POST["captcha"], $_SESSION["captchaStr"]) && $_POST["captcha"] !== $_SESSION["captchaStr"]) {
