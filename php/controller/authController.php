@@ -11,7 +11,7 @@ if (!function_exists('is_csrf_valid')) {
         include_once(__DIR__ . "/../../services/_csrf.php");
     }
 }
-
+include_once __DIR__ . "/../../services/_captcha.php";
 function gestionConnexionEnregistrement()
 {
     userShouldBeLogged(false, "/");
@@ -22,7 +22,6 @@ function gestionConnexionEnregistrement()
 
     // Vérifier si l'utilisateur a atteint 3 tentatives infructueuses
     $maxLoginAttempts = 3;
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['connecter'])) {
             // Vérification du jeton CSRF pour le formulaire de connexion

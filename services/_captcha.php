@@ -79,7 +79,6 @@ function generate_string(string $characters, int $strength = 10): string {
             $captchaStr[$i]
         );
     }
-
     header("Content-type: image/png");
     imagepng($image);
     imagedestroy($image); // Libère la mémoire associée à l'image

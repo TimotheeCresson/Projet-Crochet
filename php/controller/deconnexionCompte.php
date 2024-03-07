@@ -26,7 +26,6 @@ function deconnexionUser() {
         session_start();
         $_SESSION['cart'] = $panier;
 
-        // Vous pouvez ajouter d'autres actions de nettoyage si nécessaire
 
         // Redirige vers une page spécifique après la déconnexion
         header("Location: /compte");  // Changez "/compte" par l'URL souhaitée
