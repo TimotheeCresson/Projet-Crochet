@@ -1,8 +1,8 @@
 <?php 
+
 require __DIR__."/../template/_header.php";
 // require __DIR__ ."/../../services/_userShouldBeLogged.php";
 require __DIR__ . "/../controller/deconnexionCompte.php";
-
 
 userShouldBeLogged(true, "/");
 
