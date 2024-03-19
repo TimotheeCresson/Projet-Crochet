@@ -23,11 +23,15 @@ get("/compteUser", "./php/view/userCompte.php");
 post("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
 post("/supprimerPanier", "./php/panier/misAJourPanier/_suppression_panier.php");
 
+any("/README", "./php/README/README.md");
+
 
 any("/captcha", function() {
     require "./services/_captcha.php";
     generateAndDisplayCaptcha();
 });
+
+
 
 // ----------------  crud ---------------------------
 // Liste utilisateur 
