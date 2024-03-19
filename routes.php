@@ -23,7 +23,7 @@ get("/compteUser", "./php/view/userCompte.php");
 post("/ajoutPanier", "./php/panier/misAJourPanier/_ajout_panier.php");
 post("/supprimerPanier", "./php/panier/misAJourPanier/_suppression_panier.php");
 
-any("/README", "./php/README/README.md");
+get("/README","./README/readme.php");
 
 
 any("/captcha", function() {
