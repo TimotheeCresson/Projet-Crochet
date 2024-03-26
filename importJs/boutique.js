@@ -23,16 +23,6 @@ fetch("/data.json")
         let searchProduitsProcessed = false;
         animauxArray = data.animaux;
         trapilhoArray = data.trapilho;
-        // console.log(animauxArray, trapilhoArray);
-
-        // rechercherProduitsInput.addEventListener("input", function() {
-        //     // Affichez la valeur actuelle dans la console
-        //     const searchProduits = rechercherProduitsInput.value.toLowerCase();
-        //     creationImgContainer.innerHTML = ""; // Clear previous images
-        //     currentSetIndex = 0; // Reset currentSetIndex when searching
-        //     handleSelectChange(searchProduits);
-        //     console.log("Valeur de l'input :", rechercherProduitsInput.value);
-        // });
 
 
 
