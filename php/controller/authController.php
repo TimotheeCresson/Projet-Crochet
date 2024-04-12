@@ -41,7 +41,7 @@ function gestionConnexionEnregistrement()
 
                 // Vérifier le captcha uniquement si le nombre d'erreurs atteint 3
                 if (isset($_SESSION['login_attempts']) && $_SESSION['login_attempts'] >= $maxLoginAttempts) {
-                    $captchaInput = strtoupper(trim($_POST['captcha']));
+                    $captchaInput = strtoupper(trim($_POST['captcha'])); // convertit une chaîne de caractères en majuscules et on supprime les espaces
                     if ($captchaInput !== $_SESSION["captchaStr"]) {
                         $error["captcha"] = "Code captcha incorrect";
                         // Incrémentez le compteur d'erreurs après un échec de connexion
@@ -56,7 +56,7 @@ function gestionConnexionEnregistrement()
                             $_SESSION["id_User"] = $userEmail["id_User"];
                             $_SESSION["email"] = $userEmail["email"];
 
-                            // Utilisez la nouvelle fonction pour obtenir le rôle de l'utilisateur
+                            // Utilisez la fonction pour obtenir le rôle de l'utilisateur
                             $_SESSION["role"] = getUserRole($userEmail["id_User"]);
 
                             $_SESSION["expire"] = time() + 3600;
