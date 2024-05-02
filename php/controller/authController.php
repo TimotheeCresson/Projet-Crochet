@@ -26,7 +26,7 @@ function gestionConnexionEnregistrement()
         if (isset($_POST['connecter'])) {
             // Vérification du jeton CSRF pour le formulaire de connexion
             if (!is_csrf_valid()) {
-                // Le jeton CSRF est invalide, prenez des mesures appropriées (redirection, affichage d'une erreur, etc.)
+                // Le jeton CSRF est invalide
                 $error["connecter"] = "Erreur CSRF : Le formulaire n'est pas valide.";
                 return;
             }
